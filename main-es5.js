@@ -2606,7 +2606,7 @@ for (var COLLECTION_NAME in DOMIterables) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div style=\"color: blue;\">\n    <h1>{{title}}</h1>\n    <h3>{{description}}</h3>\n  </div>\n\n  <nav>\n    <a routerLink=\"customers\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">Messages</a>\n    <a routerLink=\"add\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">Add</a>\n  </nav>\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<img src=\"assets/chat.png\">\n\n<div class=\"container-fluid\">\n  <div style=\"color: black;\">\n    <h1>{{title}}</h1>\n    <h3>{{description}}</h3>\n  </div>\n  \n\n  <nav>\n    <a routerLink=\"customers\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">Messages</a>\n    <a routerLink=\"add\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">New Message</a>\n  </nav>\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -2628,7 +2628,7 @@ module.exports = "<h3>New Message</h3>\n<div [hidden]=\"submitted\" style=\"widt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"customer\">\n  <div>\n    <label>First Name: </label> {{customer.name}}\n  </div>\n  <div>\n    <label>Message: </label> {{customer.age}}\n  </div>\n  <div>\n    <label>Active: </label> {{customer.active}}\n  </div>\n \n  <span class=\"button is-small btn-primary\" *ngIf='customer.active' (click)='updateActive(false)'>Inactive</span>\n \n  <span class=\"button is-small btn-primary\" *ngIf='!customer.active' (click)='updateActive(true)'>Active</span>\n \n  <span class=\"button is-small btn-danger\" (click)='deleteCustomer()'>Delete</span>\n \n  <hr/>\n</div>"
+module.exports = "<div *ngIf=\"customer\">\n  <div>\n    <label>Name: </label> {{customer.name}}\n  </div>\n  <div>\n    <label>Message: </label> {{customer.age}}\n  </div>\n\n \n  <span class=\"button is-small btn-primary\" *ngIf='customer.active' (click)='updateActive(false)' ></span>\n \n  <span class=\"button is-small btn-primary\" *ngIf='!customer.active' (click)='updateActive(true)'></span>\n \n  <span class=\"button is-small btn-danger\" (click)='deleteCustomer()'></span>\n \n  <hr/>\n</div>"
 
 /***/ }),
 
