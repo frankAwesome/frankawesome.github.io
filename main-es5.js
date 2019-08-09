@@ -2606,7 +2606,7 @@ for (var COLLECTION_NAME in DOMIterables) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<img src=\"assets/chat.png\">\n\n<div class=\"container-fluid\">\n  <div style=\"color: black;\">\n    <h1>{{title}}</h1>\n    <h3>{{description}}</h3>\n  </div>\n  \n\n  <nav>\n    <a routerLink=\"customers\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">Messages</a>\n    <a routerLink=\"add\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">New Message</a>\n  </nav>\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<img src=\"assets/chat.png\">\n<app-header></app-header>\n<div class=\"container-fluid\">\n  <nav>\n    <a routerLink=\"customers\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">Messages</a>\n    <a routerLink=\"add\" class=\"btn btn-success active\" role=\"button\" routerLinkActive=\"active\">New Message</a>\n  </nav>\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -2617,7 +2617,7 @@ module.exports = "<img src=\"assets/chat.png\">\n\n<div class=\"container-fluid\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>New Message</h3>\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\n  <form (ngSubmit)=\"onSubmit()\">\n    <div class=\"form-group\">\n      <label for=\"name\">Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"name\" required [(ngModel)]=\"customer.name\" name=\"name\">\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"age\">Message</label>\n      <input type=\"text\" class=\"form-control\" id=\"age\" required [(ngModel)]=\"customer.age\" name=\"age\">\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-success\">Submit</button>\n  </form>\n</div>\n\n<div [hidden]=\"!submitted\">\n  <h4>You submitted successfully!</h4>\n  <button class=\"btn btn-success\" (click)=\"newCustomer()\">Add</button>\n</div>"
+module.exports = "<h3>New Message</h3>\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\n  <form (ngSubmit)=\"onSubmit()\">\n    <div class=\"form-group\">\n      <label for=\"name\">Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"name\" required [(ngModel)]=\"customer.name\" name=\"name\">\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"age\">Message</label>\n      <input type=\"text\" class=\"form-control\" id=\"age\" required [(ngModel)]=\"customer.age\" name=\"age\">\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-success\">Send</button>\n  </form>\n</div>\n\n<div [hidden]=\"!submitted\">\n  <h4>You submitted successfully!</h4>\n  <button class=\"btn btn-success\" (click)=\"newCustomer()\">Add</button>\n</div>"
 
 /***/ }),
 
@@ -2639,7 +2639,18 @@ module.exports = "<div *ngIf=\"customer\">\n  <div>\n    <label>Name: </label> {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n  <app-customer-details [customer]='customer'></app-customer-details>\n</div>\n<div style=\"margin-top:20px;\">\n  <button type=\"button\" class=\"button btn-danger\" (click)='deleteCustomers()'>Delete All</button>\n</div>"
+module.exports = "<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n  <app-customer-details [customer]='customer'></app-customer-details>\n</div>\n<div style=\"margin-top:20px;\">\n  <button type=\"button\" class=\"button btn-danger\" (click)='deleteCustomers()'>Delete All</button>\n  <hr>\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/header/header.component.html":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/header/header.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"#\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a href=\"#\">Images</a></li>\n          <li><a href=\"#\">Audio/Video</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  "
 
 /***/ }),
 
@@ -2691,7 +2702,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */"
+module.exports = ".btn-black{background-color:rgb(39, 37, 37);color: #FFF;}\r\n.btn-black:hover{color: #FFF;}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsV0FBVyxnQ0FBZ0MsQ0FBQyxXQUFXLENBQUM7QUFDeEQsaUJBQWlCLFdBQVcsQ0FBQyIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJ0bi1ibGFja3tiYWNrZ3JvdW5kLWNvbG9yOnJnYigzOSwgMzcsIDM3KTtjb2xvcjogI0ZGRjt9XHJcbi5idG4tYmxhY2s6aG92ZXJ7Y29sb3I6ICNGRkY7fSJdfQ== */"
 
 /***/ }),
 
@@ -2750,6 +2761,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customers_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./customers/customer-details/customer-details.component */ "./src/app/customers/customer-details/customer-details.component.ts");
 /* harmony import */ var _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./customers/customers-list/customers-list.component */ "./src/app/customers/customers-list/customers-list.component.ts");
 /* harmony import */ var _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./customers/create-customer/create-customer.component */ "./src/app/customers/create-customer/create-customer.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+
 
 
 
@@ -2771,7 +2784,8 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
                 _customers_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_9__["CustomerDetailsComponent"],
                 _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_10__["CustomersListComponent"],
-                _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_11__["CreateCustomerComponent"]
+                _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_11__["CreateCustomerComponent"],
+                _header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -3049,6 +3063,51 @@ var CustomersListComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"]])
     ], CustomersListComponent);
     return CustomersListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/header/header.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/header/header.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/header/header.component.ts ***!
+  \********************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent() {
+    }
+    HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-header',
+            template: __webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/index.js!./src/app/header/header.component.html"),
+            styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/header/header.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], HeaderComponent);
+    return HeaderComponent;
 }());
 
 
