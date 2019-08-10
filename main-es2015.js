@@ -1661,7 +1661,7 @@ module.exports = "<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"#\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"chat\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"chat\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
 
 /***/ }),
 
@@ -1712,8 +1712,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', redirectTo: 'customers', pathMatch: 'full' },
-    { path: 'customers', component: _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__["CustomersListComponent"] },
+    { path: '', redirectTo: 'chat', pathMatch: 'full' },
+    { path: 'chat', component: _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__["CustomersListComponent"] },
     { path: 'add', component: _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__["CreateCustomerComponent"] },
     { path: 'image', component: _image_image_component__WEBPACK_IMPORTED_MODULE_3__["ImageComponent"] },
     { path: 'media', component: _media_media_component__WEBPACK_IMPORTED_MODULE_4__["MediaComponent"] }
