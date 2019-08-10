@@ -1683,7 +1683,7 @@ module.exports = "<p>image works!</p>\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>media works!</p>\n"
+module.exports = "<div class=\"container\">\n<vg-player>\n    <vg-controls>\n        <vg-play-pause></vg-play-pause>\n        <vg-playback-button></vg-playback-button>\n  \n        <vg-time-display vgProperty=\"current\" vgFormat=\"mm:ss\"></vg-time-display>\n  \n        <vg-scrub-bar>\n            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>\n            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>\n        </vg-scrub-bar>\n  \n        <vg-time-display vgProperty=\"total\" vgFormat=\"mm:ss\"></vg-time-display>\n  \n        <vg-mute></vg-mute>\n        <vg-volume></vg-volume>\n  \n        <vg-fullscreen></vg-fullscreen>\n    </vg-controls>\n  \n    <video #media [vgMedia]=\"media\" id=\"singleVideo\" preload=\"auto\" crossorigin>\n        <source src=\"http://static.videogular.com/assets/videos/videogular.mp4\" type=\"video/mp4\">\n    </video>\n </vg-player>\n</div>"
 
 /***/ }),
 
@@ -1789,16 +1789,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/es2015/index.js");
-/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/es2015/index.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _customers_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./customers/customer-details/customer-details.component */ "./src/app/customers/customer-details/customer-details.component.ts");
-/* harmony import */ var _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./customers/customers-list/customers-list.component */ "./src/app/customers/customers-list/customers-list.component.ts");
-/* harmony import */ var _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./customers/create-customer/create-customer.component */ "./src/app/customers/create-customer/create-customer.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
-/* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
+/* harmony import */ var videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! videogular2/compiled/core */ "./node_modules/videogular2/compiled/core.js");
+/* harmony import */ var videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! videogular2/compiled/controls */ "./node_modules/videogular2/compiled/controls.js");
+/* harmony import */ var videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _angular_fire__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire */ "./node_modules/@angular/fire/es2015/index.js");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/es2015/index.js");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _customers_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./customers/customer-details/customer-details.component */ "./src/app/customers/customer-details/customer-details.component.ts");
+/* harmony import */ var _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./customers/customers-list/customers-list.component */ "./src/app/customers/customers-list/customers-list.component.ts");
+/* harmony import */ var _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./customers/create-customer/create-customer.component */ "./src/app/customers/create-customer/create-customer.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
+/* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
+
+
 
 
 
@@ -1819,23 +1825,25 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
-            _customers_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_9__["CustomerDetailsComponent"],
-            _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_10__["CustomersListComponent"],
-            _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_11__["CreateCustomerComponent"],
-            _header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"],
-            _image_image_component__WEBPACK_IMPORTED_MODULE_13__["ImageComponent"],
-            _media_media_component__WEBPACK_IMPORTED_MODULE_14__["MediaComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"],
+            _customers_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_11__["CustomerDetailsComponent"],
+            _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_12__["CustomersListComponent"],
+            _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_13__["CreateCustomerComponent"],
+            _header_header_component__WEBPACK_IMPORTED_MODULE_14__["HeaderComponent"],
+            _image_image_component__WEBPACK_IMPORTED_MODULE_15__["ImageComponent"],
+            _media_media_component__WEBPACK_IMPORTED_MODULE_16__["MediaComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-            _angular_fire__WEBPACK_IMPORTED_MODULE_5__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].firebase),
-            _angular_fire_database__WEBPACK_IMPORTED_MODULE_6__["AngularFireDatabaseModule"],
+            _angular_fire__WEBPACK_IMPORTED_MODULE_7__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].firebase),
+            _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__["AngularFireDatabaseModule"],
+            videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_5__["VgCoreModule"],
+            videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__["VgControlsModule"]
         ],
         providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
     })
 ], AppModule);
 
@@ -2294,7 +2302,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger No routing\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Routing\src\main.ts */"./src/main.ts");
 
 
 /***/ })
