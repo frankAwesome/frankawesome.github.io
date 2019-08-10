@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Angular8FirebaseCRUD\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger No routing\src\styles.css */"./src/styles.css");
 
 
 /***/ })

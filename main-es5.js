@@ -2606,7 +2606,7 @@ for (var COLLECTION_NAME in DOMIterables) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<img src=\"assets/chat.png\">\n<app-header></app-header>\n<div class=\"container-fluid\">\n  <nav>\n    <a routerLink=\"customers\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\">Messages</a>\n    <a routerLink=\"add\" class=\"btn btn-success active\" role=\"button\" routerLinkActive=\"active\">New Message</a>\n  </nav>\n  <router-outlet></router-outlet>\n</div>"
+module.exports = "<img src=\"assets/chat.png\">\n<app-header></app-header>\n<div class=\"container-fluid\">\n  <nav>\n  \n  </nav>\n  <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
@@ -2628,7 +2628,7 @@ module.exports = "<h3>New Message</h3>\n<div [hidden]=\"submitted\" style=\"widt
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"customer\">\n  <div>\n    <label>Name: </label> {{customer.name}}\n  </div>\n  <div>\n    <label>Message: </label> {{customer.age}}\n  </div>\n\n \n  <span class=\"button is-small btn-primary\" *ngIf='customer.active' (click)='updateActive(false)' ></span>\n \n  <span class=\"button is-small btn-primary\" *ngIf='!customer.active' (click)='updateActive(true)'></span>\n \n  <span class=\"button is-small btn-danger\" (click)='deleteCustomer()'></span>\n \n  <hr/>\n</div>"
+module.exports = "\n\n\n<div *ngIf=\"customer\">\n  <div>\n    <label>Name: </label> {{customer.name}}\n  </div>\n  <div>\n    <label>Message: </label> {{customer.age}}\n  </div>\n\n \n  <span class=\"button is-small btn-primary\" *ngIf='customer.active' (click)='updateActive(false)' ></span>\n \n  <span class=\"button is-small btn-primary\" *ngIf='!customer.active' (click)='updateActive(true)'></span>\n \n  <span class=\"button is-small btn-danger\" (click)='deleteCustomer()'></span>\n \n  <hr/>\n</div>"
 
 /***/ }),
 
@@ -2650,7 +2650,29 @@ module.exports = "<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"#\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a href=\"#\">Images</a></li>\n          <li><a href=\"#\">Audio/Video</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  "
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"#\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a href=\"add\">New Message</a></li>\n          <li><a href=\"image\">Images</a></li>\n          <li><a href=\"media\">Audio/Video</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/image/image.component.html":
+/*!**********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/image/image.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>image works!</p>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/media/media.component.html":
+/*!**********************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/media/media.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>media works!</p>\n"
 
 /***/ }),
 
@@ -2667,8 +2689,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customers/create-customer/create-customer.component */ "./src/app/customers/create-customer/create-customer.component.ts");
 /* harmony import */ var _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customers/customers-list/customers-list.component */ "./src/app/customers/customers-list/customers-list.component.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
+/* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
 
 
 
@@ -2677,15 +2703,17 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: '', redirectTo: 'customers', pathMatch: 'full' },
     { path: 'customers', component: _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__["CustomersListComponent"] },
-    { path: 'add', component: _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__["CreateCustomerComponent"] }
+    { path: 'add', component: _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__["CreateCustomerComponent"] },
+    { path: 'image', component: _image_image_component__WEBPACK_IMPORTED_MODULE_3__["ImageComponent"] },
+    { path: 'media', component: _media_media_component__WEBPACK_IMPORTED_MODULE_4__["MediaComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"]]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -2762,6 +2790,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./customers/customers-list/customers-list.component */ "./src/app/customers/customers-list/customers-list.component.ts");
 /* harmony import */ var _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./customers/create-customer/create-customer.component */ "./src/app/customers/create-customer/create-customer.component.ts");
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
+/* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
+
+
 
 
 
@@ -2785,7 +2817,9 @@ var AppModule = /** @class */ (function () {
                 _customers_customer_details_customer_details_component__WEBPACK_IMPORTED_MODULE_9__["CustomerDetailsComponent"],
                 _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_10__["CustomersListComponent"],
                 _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_11__["CreateCustomerComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"]
+                _header_header_component__WEBPACK_IMPORTED_MODULE_12__["HeaderComponent"],
+                _image_image_component__WEBPACK_IMPORTED_MODULE_13__["ImageComponent"],
+                _media_media_component__WEBPACK_IMPORTED_MODULE_14__["MediaComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -3114,6 +3148,96 @@ var HeaderComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/image/image.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/image/image.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ltYWdlL2ltYWdlLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/image/image.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/image/image.component.ts ***!
+  \******************************************/
+/*! exports provided: ImageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageComponent", function() { return ImageComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ImageComponent = /** @class */ (function () {
+    function ImageComponent() {
+    }
+    ImageComponent.prototype.ngOnInit = function () {
+    };
+    ImageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-image',
+            template: __webpack_require__(/*! raw-loader!./image.component.html */ "./node_modules/raw-loader/index.js!./src/app/image/image.component.html"),
+            styles: [__webpack_require__(/*! ./image.component.css */ "./src/app/image/image.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ImageComponent);
+    return ImageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/media/media.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/media/media.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lZGlhL21lZGlhLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/media/media.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/media/media.component.ts ***!
+  \******************************************/
+/*! exports provided: MediaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediaComponent", function() { return MediaComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var MediaComponent = /** @class */ (function () {
+    function MediaComponent() {
+    }
+    MediaComponent.prototype.ngOnInit = function () {
+    };
+    MediaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-media',
+            template: __webpack_require__(/*! raw-loader!./media.component.html */ "./node_modules/raw-loader/index.js!./src/app/media/media.component.html"),
+            styles: [__webpack_require__(/*! ./media.component.css */ "./src/app/media/media.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], MediaComponent);
+    return MediaComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -3183,7 +3307,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Angular8FirebaseCRUD\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger No routing\src\main.ts */"./src/main.ts");
 
 
 /***/ })
