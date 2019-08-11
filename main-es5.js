@@ -2683,7 +2683,7 @@ module.exports = "<div id=\"div1\" class=\"container\">\n  <div class=\"row\">\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <h1>\n      Video Chat\n    </h1>\n  \n    <div>\n      <webcam [height]=\"500\" [width]=\"500\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\n              [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\"\n              [videoOptions]=\"videoOptions\"\n              [imageQuality]=\"1\"\n              (cameraSwitched)=\"cameraWasSwitched($event)\"\n              (initError)=\"handleInitError($event)\"\n      ></webcam>\n      <br/>\n      <button class=\"actionBtn\" (click)=\"triggerSnapshot();\">Take A Snapshot</button>\n      <button class=\"actionBtn\" (click)=\"toggleWebcam();\">Toggle Webcam</button>\n      <br/>\n      <button class=\"actionBtn\" (click)=\"showNextWebcam(true);\" [disabled]=\"!multipleWebcamsAvailable\">Next Webcam</button>\n      <input id=\"cameraSwitchCheckbox\" type=\"checkbox\" [(ngModel)]=\"allowCameraSwitch\"><label for=\"cameraSwitchCheckbox\">Allow Camera Switch</label>\n      <br/>\n      DeviceId: <input id=\"deviceId\" type=\"text\" [(ngModel)]=\"deviceId\" style=\"width: 500px\">\n      <button (click)=\"showNextWebcam(deviceId);\">Activate</button>\n    </div>\n\n  \n  <div class=\"snapshot\" *ngIf=\"webcamImage\">\n    <h2>Nice one!</h2>\n    <img [src]=\"webcamImage.imageAsDataUrl\"/>\n  </div>\n  \n  <h4 *ngIf=\"errors.length > 0\">Messages:</h4>\n  <ul *ngFor=\"let error of errors\">\n    <li>{{error | json}}</li>\n  </ul>\n</div>"
+module.exports = "<div>\n\t<video id=\"device\" controls autoplay #remote>\n\t</video>\n\t<video id=\"me\" controls autoplay #me></video>\n</div>\n<button mat-raised-button color=\"primary\" (click)=\"showRemote()\" [disabled]=\"callActive\">Connect</button>\n<button mat-raised-button color=\"warn\" (click)=\"hangup()\" [disabled]=\"!callActive\">Disconnect</button>"
 
 /***/ }),
 
@@ -2811,8 +2811,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
 /* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
 /* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
-/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
-
 
 
 
@@ -2853,8 +2851,7 @@ var AppModule = /** @class */ (function () {
                 _angular_fire__WEBPACK_IMPORTED_MODULE_7__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].firebase),
                 _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__["AngularFireDatabaseModule"],
                 videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_5__["VgCoreModule"],
-                videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__["VgControlsModule"],
-                ngx_webcam__WEBPACK_IMPORTED_MODULE_18__["WebcamModule"]
+                videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__["VgControlsModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
@@ -3296,7 +3293,7 @@ var MediaComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ZpZGVvY2hhdC92aWRlb2NoYXQuY29tcG9uZW50LmNzcyJ9 */"
+module.exports = "video {\r\n    width: 300px;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlkZW9jaGF0L3ZpZGVvY2hhdC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksWUFBWTtFQUNkIiwiZmlsZSI6InNyYy9hcHAvdmlkZW9jaGF0L3ZpZGVvY2hhdC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidmlkZW8ge1xyXG4gICAgd2lkdGg6IDMwMHB4O1xyXG4gIH0iXX0= */"
 
 /***/ }),
 
@@ -3312,80 +3309,147 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VideochatComponent", function() { return VideochatComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
-
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/index.js");
 
 
 
 var VideochatComponent = /** @class */ (function () {
-    function VideochatComponent() {
-        // toggle webcam on/off
-        this.showWebcam = true;
-        this.allowCameraSwitch = true;
-        this.multipleWebcamsAvailable = false;
-        this.videoOptions = {
-        // width: {ideal: 1024},
-        // height: {ideal: 576}
-        };
-        this.errors = [];
-        // latest snapshot
-        this.webcamImage = null;
-        // webcam snapshot trigger
-        this.trigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        // switch to next / previous / specific webcam; true/false: forward/backwards, string: deviceId
-        this.nextWebcam = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+    function VideochatComponent(afDb) {
+        this.afDb = afDb;
+        this.callActive = false;
     }
     VideochatComponent.prototype.ngOnInit = function () {
+        this.setupWebRtc();
+    };
+    VideochatComponent.prototype.ngOnDestroy = function () {
+        this.pc.close();
+        var tracks = this.localStream.getTracks();
+        for (var i = 0; i < tracks.length; i++) {
+            tracks[i].stop();
+        }
+        this.callActive = false;
+    };
+    VideochatComponent.prototype.setupWebRtc = function () {
         var _this = this;
-        ngx_webcam__WEBPACK_IMPORTED_MODULE_3__["WebcamUtil"].getAvailableVideoInputs()
-            .then(function (mediaDevices) {
-            _this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
+        this.senderId = this.guid();
+        var channelName = "/webrtc";
+        this.channel = this.afDb.list(channelName);
+        this.database = this.afDb.database.ref(channelName);
+        this.database.on("child_added", this.readMessage.bind(this));
+        try {
+            this.pc = new RTCPeerConnection({
+                iceServers: [
+                    { urls: "stun:stun.services.mozilla.com" },
+                    { urls: "stun:stun.l.google.com:19302" }
+                ]
+            }, { optional: [] });
+        }
+        catch (error) {
+            console.log(error);
+            this.pc = new RTCPeerConnection({
+                iceServers: [
+                    { urls: "stun:stun.services.mozilla.com" },
+                    { urls: "stun:stun.l.google.com:19302" }
+                ]
+            }, { optional: [] });
+        }
+        this.pc.onicecandidate = function (event) {
+            event.candidate ? _this.sendMessage(_this.senderId, JSON.stringify({ ice: event.candidate })) : console.log("Sent All Ice");
+        };
+        this.pc.onremovestream = function (event) {
+            console.log('Stream Ended');
+        };
+        this.pc.ontrack = function (event) {
+            return (_this.remote.nativeElement.srcObject = event.streams[0]);
+        }; // use ontrack
+        this.showMe();
+    };
+    VideochatComponent.prototype.sendMessage = function (senderId, data) {
+        var msg = this.channel.push({ sender: senderId, message: data });
+        msg.remove();
+    };
+    VideochatComponent.prototype.readMessage = function (data) {
+        var _this = this;
+        if (!data)
+            return;
+        try {
+            var msg = JSON.parse(data.val().message);
+            var personalData = data.val().personalData;
+            var sender = data.val().sender;
+            if (sender != this.senderId) {
+                if (msg.ice != undefined && this.pc != null) {
+                    this.pc.addIceCandidate(new RTCIceCandidate(msg.ice));
+                }
+                else if (msg.sdp.type == "offer") {
+                    this.callActive = true;
+                    this.pc.setRemoteDescription(new RTCSessionDescription(msg.sdp))
+                        .then(function () { return _this.pc.createAnswer(); })
+                        .then(function (answer) { return _this.pc.setLocalDescription(answer); })
+                        .then(function () { return _this.sendMessage(_this.senderId, JSON.stringify({ sdp: _this.pc.localDescription })); });
+                }
+                else if (msg.sdp.type == "answer") {
+                    this.callActive = true;
+                    this.pc.setRemoteDescription(new RTCSessionDescription(msg.sdp));
+                }
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+    VideochatComponent.prototype.showMe = function () {
+        var _this = this;
+        navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+            .then(function (stream) { return (_this.me.nativeElement.srcObject = stream); })
+            .then(function (stream) {
+            _this.pc.addStream(stream);
+            _this.localStream = stream;
         });
     };
-    VideochatComponent.prototype.triggerSnapshot = function () {
-        this.trigger.next();
+    VideochatComponent.prototype.showRemote = function () {
+        var _this = this;
+        try {
+            this.pc.createOffer()
+                .then(function (offer) { return _this.pc.setLocalDescription(offer); })
+                .then(function () {
+                _this.sendMessage(_this.senderId, JSON.stringify({ sdp: _this.pc.localDescription }));
+                _this.callActive = true;
+            });
+        }
+        catch (error) {
+            this.setupWebRtc();
+            console.log(error);
+        }
     };
-    VideochatComponent.prototype.toggleWebcam = function () {
-        this.showWebcam = !this.showWebcam;
+    VideochatComponent.prototype.hangup = function () {
+        this.pc.close();
+        var tracks = this.localStream.getTracks();
+        for (var i = 0; i < tracks.length; i++) {
+            tracks[i].stop();
+        }
+        this.callActive = false;
     };
-    VideochatComponent.prototype.handleInitError = function (error) {
-        this.errors.push(error);
+    VideochatComponent.prototype.guid = function () {
+        return (this.s4() + this.s4() + "-" + this.s4() + "-" + this.s4() + "-" + this.s4() + "-" + this.s4() + this.s4() + this.s4());
     };
-    VideochatComponent.prototype.showNextWebcam = function (directionOrDeviceId) {
-        // true => move forward through devices
-        // false => move backwards through devices
-        // string => move to device with given deviceId
-        this.nextWebcam.next(directionOrDeviceId);
+    VideochatComponent.prototype.s4 = function () {
+        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     };
-    VideochatComponent.prototype.handleImage = function (webcamImage) {
-        console.info('received webcam image', webcamImage);
-        this.webcamImage = webcamImage;
-    };
-    VideochatComponent.prototype.cameraWasSwitched = function (deviceId) {
-        console.log('active device: ' + deviceId);
-        this.deviceId = deviceId;
-    };
-    Object.defineProperty(VideochatComponent.prototype, "triggerObservable", {
-        get: function () {
-            return this.trigger.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(VideochatComponent.prototype, "nextWebcamObservable", {
-        get: function () {
-            return this.nextWebcam.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("me", { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], VideochatComponent.prototype, "me", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("remote", { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], VideochatComponent.prototype, "remote", void 0);
     VideochatComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-videochat',
             template: __webpack_require__(/*! raw-loader!./videochat.component.html */ "./node_modules/raw-loader/index.js!./src/app/videochat/videochat.component.html"),
             styles: [__webpack_require__(/*! ./videochat.component.css */ "./src/app/videochat/videochat.component.css")]
-        })
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"]])
     ], VideochatComponent);
     return VideochatComponent;
 }());
