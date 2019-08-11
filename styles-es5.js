@@ -598,8 +598,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video Chat Working\node_modules\videogular2\fonts\videogular.css */"./node_modules/videogular2/fonts/videogular.css");
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video Chat Working\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video Chat Working Mobile support\node_modules\videogular2\fonts\videogular.css */"./node_modules/videogular2/fonts/videogular.css");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video Chat Working Mobile support\src\styles.css */"./src/styles.css");
 
 
 /***/ })

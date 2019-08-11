@@ -1661,7 +1661,7 @@ module.exports = "<div class=\"container\">\n  <h1>Messages</h1>\n  <div *ngFor=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"mobile\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a routerLink=\"mobile\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
 
 /***/ }),
 
@@ -2625,7 +2625,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video Chat Working\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video Chat Working Mobile support\src\main.ts */"./src/main.ts");
 
 
 /***/ })
