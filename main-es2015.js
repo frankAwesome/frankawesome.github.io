@@ -1650,7 +1650,7 @@ module.exports = "\n\n\n<div *ngIf=\"customer\">\n  <div>\n    <label>Name: </la
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n  <app-customer-details [customer]='customer'></app-customer-details>\n</div>\n<div style=\"margin-top:20px;\">\n  <button type=\"button\" class=\"button btn-danger\" (click)='deleteCustomers()'>Delete All</button>\n  <hr>\n</div>\n\n</div>"
+module.exports = "<div class=\"container\">\n  <h1>Messages</h1>\n  <div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n    <app-customer-details [customer]=\"customer\"></app-customer-details>\n  </div>\n  <div style=\"margin-top:20px;\">\n    <button type=\"button\" class=\"button btn-danger\" (click)=\"deleteCustomers()\">\n      Delete All\n    </button>\n    <hr />\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1661,7 +1661,7 @@ module.exports = "<div class=\"container\">\n\n<h1>Messages</h1>\n<div *ngFor=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"#\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"mobile\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
 
 /***/ }),
 
@@ -1684,6 +1684,28 @@ module.exports = "<div class=\"container\">\n\n<h2>Images</h2>\n\n<div class=\"c
 /***/ (function(module, exports) {
 
 module.exports = "<div id=\"div1\" class=\"container\">\n  <div class=\"row\">\n    <h2>Media Playlist</h2>\n\n    <div class=\"course-image-upload\">\n      <span>Upload file to playlist:</span>\n\n      <input type=\"file\" (change)=\"uploadFile($event)\" />\n    </div>\n\n    <ul>\n      <li\n        *ngFor=\"let item of playlist; let $index = index\"\n        (click)=\"onClickPlaylistItem(item, $index)\"\n        [class.selected]=\"item === currentItem\"\n      >\n        {{ item.title }}\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"div2\" class=\"container\">\n  <div style=\"width:50%;  display:inline-table;\">\n    <vg-player>\n      <vg-controls>\n        <vg-play-pause></vg-play-pause>\n        <vg-playback-button></vg-playback-button>\n\n        <vg-time-display\n          vgProperty=\"current\"\n          vgFormat=\"mm:ss\"\n        ></vg-time-display>\n\n        <vg-scrub-bar>\n          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>\n          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>\n        </vg-scrub-bar>\n\n        <vg-time-display vgProperty=\"total\" vgFormat=\"mm:ss\"></vg-time-display>\n\n        <vg-mute></vg-mute>\n        <vg-volume></vg-volume>\n\n        <vg-fullscreen></vg-fullscreen>\n      </vg-controls>\n\n      <video\n        #media\n        [vgMedia]=\"media\"\n        [src]=\"currentItem.src\"\n        id=\"singleVideo\"\n        preload=\"auto\"\n        crossorigin\n      ></video>\n    </vg-player>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/mobile/mobile.component.html":
+/*!************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/mobile/mobile.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-mobilebuttons></app-mobilebuttons>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/mobilebuttons/mobilebuttons.component.html":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/mobilebuttons/mobilebuttons.component.html ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n\n<h3>How can we help you today?</h3>\n<hr>\n<div>\n    <a routerLink=\"/chat\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\" style=\"width: 13%;\">Messages</a>\n    </div>\n    <hr>\n<div>\n<a routerLink=\"/add\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\" style=\"width: 13%;\">Add new message</a>\n</div>\n<hr>\n<div>\n<a routerLink=\"/image\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\" style=\"width: 13%;\">Images</a>\n</div>\n<hr>\n<div>\n<a routerLink=\"/media\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\" style=\"width: 13%;\">Media</a>\n</div>\n<hr>\n<div>\n<a routerLink=\"/video\" class=\"btn btn-primary active\" role=\"button\" routerLinkActive=\"active\" style=\"width: 13%;\">Video Chat</a>\n</div>\n</div>"
 
 /***/ }),
 
@@ -1714,8 +1736,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
 /* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
 /* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mobile/mobile.component */ "./src/app/mobile/mobile.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
@@ -1730,14 +1754,15 @@ const routes = [
     { path: 'add', component: _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__["CreateCustomerComponent"] },
     { path: 'image', component: _image_image_component__WEBPACK_IMPORTED_MODULE_3__["ImageComponent"] },
     { path: 'media', component: _media_media_component__WEBPACK_IMPORTED_MODULE_4__["MediaComponent"] },
-    { path: 'video', component: _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_5__["VideochatComponent"] }
+    { path: 'video', component: _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_5__["VideochatComponent"] },
+    { path: 'mobile', component: _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_6__["MobileComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"]]
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_7__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"].forRoot(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"]]
     })
 ], AppRoutingModule);
 
@@ -1818,6 +1843,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
 /* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
 /* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
+/* harmony import */ var _mobilebuttons_mobilebuttons_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./mobilebuttons/mobilebuttons.component */ "./src/app/mobilebuttons/mobilebuttons.component.ts");
+/* harmony import */ var _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./mobile/mobile.component */ "./src/app/mobile/mobile.component.ts");
+
+
 
 
 
@@ -1848,7 +1877,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _header_header_component__WEBPACK_IMPORTED_MODULE_14__["HeaderComponent"],
             _image_image_component__WEBPACK_IMPORTED_MODULE_15__["ImageComponent"],
             _media_media_component__WEBPACK_IMPORTED_MODULE_16__["MediaComponent"],
-            _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_17__["VideochatComponent"]
+            _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_17__["VideochatComponent"],
+            _mobilebuttons_mobilebuttons_component__WEBPACK_IMPORTED_MODULE_18__["MobilebuttonsComponent"],
+            _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_19__["MobileComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -2274,6 +2305,92 @@ MediaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/mobile/mobile.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/mobile/mobile.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vYmlsZS9tb2JpbGUuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/mobile/mobile.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/mobile/mobile.component.ts ***!
+  \********************************************/
+/*! exports provided: MobileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MobileComponent", function() { return MobileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let MobileComponent = class MobileComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+MobileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-mobile',
+        template: __webpack_require__(/*! raw-loader!./mobile.component.html */ "./node_modules/raw-loader/index.js!./src/app/mobile/mobile.component.html"),
+        styles: [__webpack_require__(/*! ./mobile.component.css */ "./src/app/mobile/mobile.component.css")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], MobileComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/mobilebuttons/mobilebuttons.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/mobilebuttons/mobilebuttons.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vYmlsZWJ1dHRvbnMvbW9iaWxlYnV0dG9ucy5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/mobilebuttons/mobilebuttons.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/mobilebuttons/mobilebuttons.component.ts ***!
+  \**********************************************************/
+/*! exports provided: MobilebuttonsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MobilebuttonsComponent", function() { return MobilebuttonsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let MobilebuttonsComponent = class MobilebuttonsComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+MobilebuttonsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-mobilebuttons',
+        template: __webpack_require__(/*! raw-loader!./mobilebuttons.component.html */ "./node_modules/raw-loader/index.js!./src/app/mobilebuttons/mobilebuttons.component.html"),
+        styles: [__webpack_require__(/*! ./mobilebuttons.component.css */ "./src/app/mobilebuttons/mobilebuttons.component.css")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+], MobilebuttonsComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/videochat/videochat.component.css":
 /*!***************************************************!*\
   !*** ./src/app/videochat/videochat.component.css ***!
@@ -2508,7 +2625,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video w list\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video Chat Working\src\main.ts */"./src/main.ts");
 
 
 /***/ })
