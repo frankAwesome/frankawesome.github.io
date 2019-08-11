@@ -598,8 +598,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Routing\node_modules\videogular2\fonts\videogular.css */"./node_modules/videogular2/fonts/videogular.css");
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Routing\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Video Player\node_modules\videogular2\fonts\videogular.css */"./node_modules/videogular2/fonts/videogular.css");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Video Player\src\styles.css */"./src/styles.css");
 
 
 /***/ })

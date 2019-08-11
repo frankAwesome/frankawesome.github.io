@@ -2617,7 +2617,7 @@ module.exports = "<img src=\"assets/chat.png\">\n<app-header></app-header>\n<div
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h3>New Message</h3>\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\n  <form (ngSubmit)=\"onSubmit()\">\n    <div class=\"form-group\">\n      <label for=\"name\">Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"name\" required [(ngModel)]=\"customer.name\" name=\"name\">\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"age\">Message</label>\n      <input type=\"text\" class=\"form-control\" id=\"age\" required [(ngModel)]=\"customer.age\" name=\"age\">\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-success\">Send</button>\n  </form>\n</div>\n\n<div [hidden]=\"!submitted\">\n  <h4>You submitted successfully!</h4>\n  <button class=\"btn btn-success\" (click)=\"newCustomer()\">Add</button>\n</div>"
+module.exports = "<div class=\"container\">\n\n<h3>New Message</h3>\n<div [hidden]=\"submitted\" style=\"width: 300px;\">\n  <form (ngSubmit)=\"onSubmit()\">\n    <div class=\"form-group\">\n      <label for=\"name\">Name</label>\n      <input type=\"text\" class=\"form-control\" id=\"name\" required [(ngModel)]=\"customer.name\" name=\"name\">\n    </div>\n\n    <div class=\"form-group\">\n      <label for=\"age\">Message</label>\n      <input type=\"text\" class=\"form-control\" id=\"age\" required [(ngModel)]=\"customer.age\" name=\"age\">\n    </div>\n\n    <button type=\"submit\" class=\"btn btn-success\">Send</button>\n  </form>\n</div>\n\n<div [hidden]=\"!submitted\">\n  <h4>You submitted successfully!</h4>\n  <button class=\"btn btn-success\" (click)=\"newCustomer()\">Add</button>\n</div>\n\n</div>"
 
 /***/ }),
 
@@ -2639,7 +2639,7 @@ module.exports = "\n\n\n<div *ngIf=\"customer\">\n  <div>\n    <label>Name: </la
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n  <app-customer-details [customer]='customer'></app-customer-details>\n</div>\n<div style=\"margin-top:20px;\">\n  <button type=\"button\" class=\"button btn-danger\" (click)='deleteCustomers()'>Delete All</button>\n  <hr>\n</div>"
+module.exports = "<div class=\"container\">\n\n<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n  <app-customer-details [customer]='customer'></app-customer-details>\n</div>\n<div style=\"margin-top:20px;\">\n  <button type=\"button\" class=\"button btn-danger\" (click)='deleteCustomers()'>Delete All</button>\n  <hr>\n</div>\n\n</div>"
 
 /***/ }),
 
@@ -2650,7 +2650,7 @@ module.exports = "<h1>Messages</h1>\n<div *ngFor=\"let customer of customers\" s
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"#\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a href=\"#\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
 
 /***/ }),
 
@@ -2661,7 +2661,7 @@ module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<hr>\n<img src=\"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5f4bd7a6-f763-4518-9b81-bdfd40ce3fc9/d26yedh-7321e3e3-0846-4b77-b418-a30348f982f3.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVmNGJkN2E2LWY3NjMtNDUxOC05YjgxLWJkZmQ0MGNlM2ZjOVwvZDI2eWVkaC03MzIxZTNlMy0wODQ2LTRiNzctYjQxOC1hMzAzNDhmOTgyZjMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.nvmUh7ZUbQgHUITE1Dhs97KzGb_gD2BjLiOiq73oMLY\">\n<hr>\n<img src=\"https://avatarfiles.alphacoders.com/264/thumb-26411.gif\">\n"
+module.exports = "<div class=\"container\">\n\n<h2>Images</h2>\n\n<div class=\"course-image-upload\">\n        <span>Upload image:</span>\n  \n        <input type=\"file\" (change)=\"uploadFile($event)\" />\n      </div>\n\n<hr>\n<img src=\"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5f4bd7a6-f763-4518-9b81-bdfd40ce3fc9/d26yedh-7321e3e3-0846-4b77-b418-a30348f982f3.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVmNGJkN2E2LWY3NjMtNDUxOC05YjgxLWJkZmQ0MGNlM2ZjOVwvZDI2eWVkaC03MzIxZTNlMy0wODQ2LTRiNzctYjQxOC1hMzAzNDhmOTgyZjMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.nvmUh7ZUbQgHUITE1Dhs97KzGb_gD2BjLiOiq73oMLY\">\n<hr>\n<img src=\"https://avatarfiles.alphacoders.com/264/thumb-26411.gif\">\n</div>"
 
 /***/ }),
 
@@ -2672,7 +2672,18 @@ module.exports = "<hr>\n<img src=\"https://images-wixmp-ed30a86b8c4ca887773594c2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n<vg-player>\n    <vg-controls>\n        <vg-play-pause></vg-play-pause>\n        <vg-playback-button></vg-playback-button>\n  \n        <vg-time-display vgProperty=\"current\" vgFormat=\"mm:ss\"></vg-time-display>\n  \n        <vg-scrub-bar>\n            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>\n            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>\n        </vg-scrub-bar>\n  \n        <vg-time-display vgProperty=\"total\" vgFormat=\"mm:ss\"></vg-time-display>\n  \n        <vg-mute></vg-mute>\n        <vg-volume></vg-volume>\n  \n        <vg-fullscreen></vg-fullscreen>\n    </vg-controls>\n  \n    <video #media [vgMedia]=\"media\" id=\"singleVideo\" preload=\"auto\" crossorigin>\n        <source src=\"http://static.videogular.com/assets/videos/videogular.mp4\" type=\"video/mp4\">\n    </video>\n </vg-player>\n</div>"
+module.exports = "<div id=\"div1\" class=\"container\">\n  <div class=\"row\">\n    <h2>Media Playlist</h2>\n\n    <div class=\"course-image-upload\">\n      <span>Upload file to playlist:</span>\n\n      <input type=\"file\" (change)=\"uploadFile($event)\" />\n    </div>\n\n    <ul>\n      <li\n        *ngFor=\"let item of playlist; let $index = index\"\n        (click)=\"onClickPlaylistItem(item, $index)\"\n        [class.selected]=\"item === currentItem\"\n      >\n        {{ item.title }}\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"div2\" class=\"container\">\n  <div style=\"width:50%;  display:inline-table;\">\n    <vg-player>\n      <vg-controls>\n        <vg-play-pause></vg-play-pause>\n        <vg-playback-button></vg-playback-button>\n\n        <vg-time-display\n          vgProperty=\"current\"\n          vgFormat=\"mm:ss\"\n        ></vg-time-display>\n\n        <vg-scrub-bar>\n          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>\n          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>\n        </vg-scrub-bar>\n\n        <vg-time-display vgProperty=\"total\" vgFormat=\"mm:ss\"></vg-time-display>\n\n        <vg-mute></vg-mute>\n        <vg-volume></vg-volume>\n\n        <vg-fullscreen></vg-fullscreen>\n      </vg-controls>\n\n      <video\n        #media\n        [vgMedia]=\"media\"\n        [src]=\"currentItem.src\"\n        id=\"singleVideo\"\n        preload=\"auto\"\n        crossorigin\n      ></video>\n    </vg-player>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/videochat/videochat.component.html":
+/*!******************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/videochat/videochat.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>videochat works!</p>\n"
 
 /***/ }),
 
@@ -2691,8 +2702,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customers/customers-list/customers-list.component */ "./src/app/customers/customers-list/customers-list.component.ts");
 /* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
 /* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 
 
 
@@ -2705,15 +2718,16 @@ var routes = [
     { path: 'chat', component: _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__["CustomersListComponent"] },
     { path: 'add', component: _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__["CreateCustomerComponent"] },
     { path: 'image', component: _image_image_component__WEBPACK_IMPORTED_MODULE_3__["ImageComponent"] },
-    { path: 'media', component: _media_media_component__WEBPACK_IMPORTED_MODULE_4__["MediaComponent"] }
+    { path: 'media', component: _media_media_component__WEBPACK_IMPORTED_MODULE_4__["MediaComponent"] },
+    { path: 'video', component: _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_5__["VideochatComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"]]
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["NgModule"])({
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(routes)],
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -2796,6 +2810,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
 /* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
 /* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
+/* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
+
 
 
 
@@ -2825,7 +2841,8 @@ var AppModule = /** @class */ (function () {
                 _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_13__["CreateCustomerComponent"],
                 _header_header_component__WEBPACK_IMPORTED_MODULE_14__["HeaderComponent"],
                 _image_image_component__WEBPACK_IMPORTED_MODULE_15__["ImageComponent"],
-                _media_media_component__WEBPACK_IMPORTED_MODULE_16__["MediaComponent"]
+                _media_media_component__WEBPACK_IMPORTED_MODULE_16__["MediaComponent"],
+                _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_17__["VideochatComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -3208,7 +3225,7 @@ var ImageComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lZGlhL21lZGlhLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = "ul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-family: sans-serif;\r\n  \r\n    \r\n }\r\n\r\n li {\r\n    padding: 10px;\r\n    cursor: pointer;\r\n\r\n    \r\n\r\n    \r\n}\r\n\r\n .div1 {\r\n    display: inline-block;\r\n}\r\n\r\n .div2 {\r\n    display: inline-block;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWVkaWEvbWVkaWEuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHFCQUFxQjtJQUNyQixTQUFTO0lBQ1QsVUFBVTtJQUNWLHVCQUF1Qjs7O0NBRzFCOztDQUVBO0lBQ0csYUFBYTtJQUNiLGVBQWU7Ozs7O0FBS25COztDQUVBO0lBQ0kscUJBQXFCO0FBQ3pCOztDQUVBO0lBQ0kscUJBQXFCO0FBQ3pCIiwiZmlsZSI6InNyYy9hcHAvbWVkaWEvbWVkaWEuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInVsIHtcclxuICAgIGxpc3Qtc3R5bGUtdHlwZTogbm9uZTtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIHBhZGRpbmc6IDA7XHJcbiAgICBmb250LWZhbWlseTogc2Fucy1zZXJpZjtcclxuICBcclxuICAgIFxyXG4gfVxyXG5cclxuIGxpIHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcblxyXG4gICAgXHJcblxyXG4gICAgXHJcbn1cclxuXHJcbi5kaXYxIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG5cclxuLmRpdjIge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG59Il19 */"
 
 /***/ }),
 
@@ -3228,8 +3245,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var MediaComponent = /** @class */ (function () {
     function MediaComponent() {
+        this.playlist = [
+            {
+                title: '- Pale Blue Dot mp4',
+                src: 'http://static.videogular.com/assets/videos/videogular.mp4',
+                type: 'video/mp4'
+            },
+            {
+                title: '- Big Buck Bunny mp4',
+                src: 'http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov',
+                type: 'video/mp4'
+            },
+            {
+                title: '- Elephants Dream mp4',
+                src: 'http://static.videogular.com/assets/videos/elephants-dream.mp4',
+                type: 'video/mp4'
+            }
+        ];
+        this.currentIndex = 0;
+        this.currentItem = this.playlist[this.currentIndex];
     }
     MediaComponent.prototype.ngOnInit = function () {
+    };
+    MediaComponent.prototype.onClickPlaylistItem = function (item) {
+        this.currentIndex = 2;
+        this.currentItem = item;
     };
     MediaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3240,6 +3280,51 @@ var MediaComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], MediaComponent);
     return MediaComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/videochat/videochat.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/videochat/videochat.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3ZpZGVvY2hhdC92aWRlb2NoYXQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/videochat/videochat.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/videochat/videochat.component.ts ***!
+  \**************************************************/
+/*! exports provided: VideochatComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VideochatComponent", function() { return VideochatComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var VideochatComponent = /** @class */ (function () {
+    function VideochatComponent() {
+    }
+    VideochatComponent.prototype.ngOnInit = function () {
+    };
+    VideochatComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-videochat',
+            template: __webpack_require__(/*! raw-loader!./videochat.component.html */ "./node_modules/raw-loader/index.js!./src/app/videochat/videochat.component.html"),
+            styles: [__webpack_require__(/*! ./videochat.component.css */ "./src/app/videochat/videochat.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], VideochatComponent);
+    return VideochatComponent;
 }());
 
 
@@ -3315,7 +3400,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Routing\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Video Player\src\main.ts */"./src/main.ts");
 
 
 /***/ })
