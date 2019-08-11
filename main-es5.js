@@ -2683,7 +2683,7 @@ module.exports = "<div id=\"div1\" class=\"container\">\n  <div class=\"row\">\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>videochat works!</p>\n"
+module.exports = "<div class=\"container\">\n    <h1>\n      Video Chat\n    </h1>\n  \n    <div>\n      <webcam [height]=\"500\" [width]=\"500\" [trigger]=\"triggerObservable\" (imageCapture)=\"handleImage($event)\" *ngIf=\"showWebcam\"\n              [allowCameraSwitch]=\"allowCameraSwitch\" [switchCamera]=\"nextWebcamObservable\"\n              [videoOptions]=\"videoOptions\"\n              [imageQuality]=\"1\"\n              (cameraSwitched)=\"cameraWasSwitched($event)\"\n              (initError)=\"handleInitError($event)\"\n      ></webcam>\n      <br/>\n      <button class=\"actionBtn\" (click)=\"triggerSnapshot();\">Take A Snapshot</button>\n      <button class=\"actionBtn\" (click)=\"toggleWebcam();\">Toggle Webcam</button>\n      <br/>\n      <button class=\"actionBtn\" (click)=\"showNextWebcam(true);\" [disabled]=\"!multipleWebcamsAvailable\">Next Webcam</button>\n      <input id=\"cameraSwitchCheckbox\" type=\"checkbox\" [(ngModel)]=\"allowCameraSwitch\"><label for=\"cameraSwitchCheckbox\">Allow Camera Switch</label>\n      <br/>\n      DeviceId: <input id=\"deviceId\" type=\"text\" [(ngModel)]=\"deviceId\" style=\"width: 500px\">\n      <button (click)=\"showNextWebcam(deviceId);\">Activate</button>\n    </div>\n\n  \n  <div class=\"snapshot\" *ngIf=\"webcamImage\">\n    <h2>Nice one!</h2>\n    <img [src]=\"webcamImage.imageAsDataUrl\"/>\n  </div>\n  \n  <h4 *ngIf=\"errors.length > 0\">Messages:</h4>\n  <ul *ngFor=\"let error of errors\">\n    <li>{{error | json}}</li>\n  </ul>\n</div>"
 
 /***/ }),
 
@@ -2811,6 +2811,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _image_image_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./image/image.component */ "./src/app/image/image.component.ts");
 /* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
 /* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
+/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
+
 
 
 
@@ -2851,7 +2853,8 @@ var AppModule = /** @class */ (function () {
                 _angular_fire__WEBPACK_IMPORTED_MODULE_7__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_9__["environment"].firebase),
                 _angular_fire_database__WEBPACK_IMPORTED_MODULE_8__["AngularFireDatabaseModule"],
                 videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_5__["VgCoreModule"],
-                videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__["VgControlsModule"]
+                videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__["VgControlsModule"],
+                ngx_webcam__WEBPACK_IMPORTED_MODULE_18__["WebcamModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]]
@@ -3309,20 +3312,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VideochatComponent", function() { return VideochatComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm5/ngx-webcam.js");
+
+
 
 
 var VideochatComponent = /** @class */ (function () {
     function VideochatComponent() {
+        // toggle webcam on/off
+        this.showWebcam = true;
+        this.allowCameraSwitch = true;
+        this.multipleWebcamsAvailable = false;
+        this.videoOptions = {
+        // width: {ideal: 1024},
+        // height: {ideal: 576}
+        };
+        this.errors = [];
+        // latest snapshot
+        this.webcamImage = null;
+        // webcam snapshot trigger
+        this.trigger = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        // switch to next / previous / specific webcam; true/false: forward/backwards, string: deviceId
+        this.nextWebcam = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
     }
     VideochatComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        ngx_webcam__WEBPACK_IMPORTED_MODULE_3__["WebcamUtil"].getAvailableVideoInputs()
+            .then(function (mediaDevices) {
+            _this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
+        });
     };
+    VideochatComponent.prototype.triggerSnapshot = function () {
+        this.trigger.next();
+    };
+    VideochatComponent.prototype.toggleWebcam = function () {
+        this.showWebcam = !this.showWebcam;
+    };
+    VideochatComponent.prototype.handleInitError = function (error) {
+        this.errors.push(error);
+    };
+    VideochatComponent.prototype.showNextWebcam = function (directionOrDeviceId) {
+        // true => move forward through devices
+        // false => move backwards through devices
+        // string => move to device with given deviceId
+        this.nextWebcam.next(directionOrDeviceId);
+    };
+    VideochatComponent.prototype.handleImage = function (webcamImage) {
+        console.info('received webcam image', webcamImage);
+        this.webcamImage = webcamImage;
+    };
+    VideochatComponent.prototype.cameraWasSwitched = function (deviceId) {
+        console.log('active device: ' + deviceId);
+        this.deviceId = deviceId;
+    };
+    Object.defineProperty(VideochatComponent.prototype, "triggerObservable", {
+        get: function () {
+            return this.trigger.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VideochatComponent.prototype, "nextWebcamObservable", {
+        get: function () {
+            return this.nextWebcam.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
     VideochatComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-videochat',
             template: __webpack_require__(/*! raw-loader!./videochat.component.html */ "./node_modules/raw-loader/index.js!./src/app/videochat/videochat.component.html"),
             styles: [__webpack_require__(/*! ./videochat.component.css */ "./src/app/videochat/videochat.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        })
     ], VideochatComponent);
     return VideochatComponent;
 }());
@@ -3400,7 +3463,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger With Video Player\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messanger Video w list\src\main.ts */"./src/main.ts");
 
 
 /***/ })
