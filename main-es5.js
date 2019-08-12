@@ -2639,7 +2639,7 @@ module.exports = "\n\n\n<div *ngIf=\"customer\">\n  <div>\n    <label>Name: </la
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>Messages</h1>\n  <div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n    <app-customer-details [customer]=\"customer\"></app-customer-details>\n  </div>\n  <div style=\"margin-top:20px;\">\n    <button type=\"button\" class=\"button btn-danger\" (click)=\"deleteCustomers()\">\n      Delete All\n    </button>\n    <hr />\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <h1>Messages</h1>\n  <div *ngFor=\"let customer of customers\" style=\"width: 300px;\">\n    <app-customer-details [customer]=\"customer\"></app-customer-details>\n  </div>\n  <div style=\"margin-top:20px;\">\n    <button class=\"btn btn-danger\" type=\"button\" (click)=\"deleteCustomers()\">\n      Delete All\n    </button>\n    <hr />\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2705,7 +2705,7 @@ module.exports = "<div class=\"container\">\n\n<h3>How can we help you today?</h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\t<video id=\"device\" controls autoplay #remote>\n\t</video>\n\t<video id=\"me\" controls autoplay #me></video>\n</div>\n<button mat-raised-button color=\"primary\" (click)=\"showRemote()\" [disabled]=\"callActive\">Connect</button>\n<button mat-raised-button color=\"warn\" (click)=\"hangup()\" [disabled]=\"!callActive\">Disconnect</button>"
+module.exports = "<div class=\"container\">\n<div>\n\t<video id=\"device\" controls autoplay #remote>\n\t</video>\n\t<video id=\"me\" controls autoplay #me></video>\n</div>\n<button class=\"btn btn-success\" mat-raised-button color=\"primary\" (click)=\"showRemote()\" [disabled]=\"callActive\">Connect</button>\n<button class=\"btn btn-primary\" mat-raised-button color=\"warn\" (click)=\"hangup()\" [disabled]=\"!callActive\">Disconnect</button>\n</div>"
 
 /***/ }),
 
