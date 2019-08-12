@@ -2650,7 +2650,7 @@ module.exports = "<div class=\"container\">\n  <h1>Messages</h1>\n  <div *ngFor=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a routerLink=\"mobile\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a href=\"#\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a routerLink=\"mobile\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a routerLink=\"chat\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image\">Images</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
 
 /***/ }),
 
