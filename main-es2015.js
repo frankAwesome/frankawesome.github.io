@@ -1661,7 +1661,7 @@ module.exports = "<div class=\"container\">\n  <h1>Messages</h1>\n  <div *ngFor=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a routerLink=\"mobile\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a routerLink=\"chat\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image/upload\">Image Upload</a></li>\n          <li><a routerLink=\"image/list\">Image Gallery</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
+module.exports = "<nav class=\"navbar navbar-inverse\">\n    \n    <div class=\"container-fluid\">\n        \n      <div class=\"navbar-header\">\n\n        <a routerLink=\"mobile\" class=\"navbar-brand\">The Office Messenger</a>\n      </div>\n      <div class=\"collapse navbar-collapse\">\n        <ul class=\"nav navbar-nav\">\n          <li><a routerLink=\"chat\">Text Chat</a></li>\n          <li><a routerLink=\"add\">New Message</a></li>\n          <li><a routerLink=\"image/upload\">Image Upload</a></li>\n          <li><a routerLink=\"image/list\">Image Gallery</a></li>\n          <li><a routerLink=\"mediaupload\">Media Upload</a></li>\n          <li><a routerLink=\"media\">Media</a></li>\n          <li><a routerLink=\"video\">Video chat</a></li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n  \n\n  "
 
 /***/ }),
 
@@ -1705,7 +1705,18 @@ module.exports = "<div class=\"container\">\r\n\r\n    <router-outlet></router-o
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"div1\" class=\"container\">\n  <div class=\"row\">\n    <h2>Media Playlist</h2>\n\n    <div class=\"course-image-upload\">\n      <span>Upload file to playlist:</span>\n\n      <input type=\"file\" (change)=\"uploadFile($event)\" />\n    </div>\n\n    <ul>\n      <li\n        *ngFor=\"let item of playlist; let $index = index\"\n        (click)=\"onClickPlaylistItem(item, $index)\"\n        [class.selected]=\"item === currentItem\"\n      >\n        {{ item.title }}\n      </li>\n    </ul>\n  </div>\n</div>\n\n<div id=\"div2\" class=\"container\">\n  <div style=\"width:50%;  display:inline-table;\">\n    <vg-player>\n      <vg-controls>\n        <vg-play-pause></vg-play-pause>\n        <vg-playback-button></vg-playback-button>\n\n        <vg-time-display\n          vgProperty=\"current\"\n          vgFormat=\"mm:ss\"\n        ></vg-time-display>\n\n        <vg-scrub-bar>\n          <vg-scrub-bar-current-time></vg-scrub-bar-current-time>\n          <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>\n        </vg-scrub-bar>\n\n        <vg-time-display vgProperty=\"total\" vgFormat=\"mm:ss\"></vg-time-display>\n\n        <vg-mute></vg-mute>\n        <vg-volume></vg-volume>\n\n        <vg-fullscreen></vg-fullscreen>\n      </vg-controls>\n\n      <video\n        #media\n        [vgMedia]=\"media\"\n        [src]=\"currentItem.src\"\n        id=\"singleVideo\"\n        preload=\"auto\"\n        crossorigin\n      ></video>\n    </vg-player>\n  </div>\n</div>\n"
+module.exports = "<div id=\"div1\" class=\"container\">\n  <div class=\"row\">\n\n\n\n\n\n\n<div class=\"container\">\n\n  <table *ngIf=\"imageList\">\n    <tr *ngFor=\"let i of rowIndexArray\">\n      <td>\n        <div class=\"imagebox\" *ngIf=\"i!=0\">\n\n          <div id=\"div2\" class=\"container\">\n            <div style=\"width:50%;  display:inline-table;\">\n          \n              <mat-video title=\"Office Media\" [autoplay]=\"false\" [preload]=\"false\" [fullscreen]=\"false\" [download]=\"true\" color=\"accent\" spinner=\"spin\" poster=\"image.jpg\">\n                <source matVideoSource [src]=\"imageList[3*i-1].imageUrl\" type=\"video/mp4\">\n                \n              </mat-video>\n            </div>\n          </div>\n          <span class=\"imagebox-desc\">{{imageList[3*i-1].caption}}</span>\n        </div>\n      </td>\n      <td *ngIf=\"imageList[3*i]\">\n        <div class=\"imagebox\">\n\n          <mat-video title=\"Office Media\" [autoplay]=\"false\" [preload]=\"false\" [fullscreen]=\"false\" [download]=\"true\" color=\"accent\" spinner=\"spin\" poster=\"image.jpg\">\n            <source matVideoSource [src]=\"imageList[3*i].imageUrl\" type=\"video/mp4\">\n            \n          </mat-video>\n          <span class=\"imagebox-desc\">{{imageList[3*i].caption}}</span>\n        </div>\n      </td>\n      <td *ngIf=\"imageList[3*i+1]\">\n        <div class=\"imagebox\">\n\n          <mat-video title=\"Office Media\" [autoplay]=\"false\" [preload]=\"false\" [fullscreen]=\"false\" [download]=\"true\" color=\"accent\" spinner=\"spin\" poster=\"image.jpg\">\n            <source matVideoSource [src]=\"imageList[3*i+1].imageUrl\" type=\"video/mp4\">\n            \n          </mat-video>\n          <span class=\"imagebox-desc\">{{imageList[3*i+1].caption}}</span>\n        </div>\n      </td>\n    </tr>\n  </table>\n  \n  </div>\n\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/mediaupload/mediaupload.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/mediaupload/mediaupload.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n\n<div class=\"card\" style=\"width:25rem\">\n    <div class=\"card-body\">\n      <form [formGroup]=\"formTemplate\" (submit)=\"onSubmit(formTemplate.value)\">\n        <div class=\"text-center\">\n  \n\n          <mat-video title=\"Office Media\" [autoplay]=\"true\" [preload]=\"false\" [fullscreen]=\"false\" [download]=\"true\" color=\"accent\" spinner=\"spin\" poster=\"image.jpg\">\n            <source matVideoSource [src]=\"imgSrc\" type=\"video/mp4\">\n            \n          </mat-video>\n\n        </div>\n        <div class=\"form-group\">\n          <label>Select file to upload</label>\n          <input type=\"file\" class=\"form-control\" #fileUploader formControlName=\"imageUrl\"\n            (change)=\"showPreview($event)\">\n          <div class=\"text-danger\" *ngIf=\"isSubmitted && formControls.imageUrl.errors?.required\">This field is required.\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <input class=\"form-control\" formControlName=\"caption\" placeholder=\"Caption\">\n          <div class=\"text-danger\" *ngIf=\"isSubmitted && formControls.caption.errors?.required\">This field is required.\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <select formControlName=\"category\" class=\"form-control\">\n            <option value=\"Animal\">Business</option>\n            <option value=\"Vehicle\">Employees</option>\n            <option value=\"Bird\">Other</option>\n          </select>\n        </div>\n        <div class=\"form-row\">\n          <div class=\"form-group col-md-6\">\n            <a routerLink=\"/image/list\" class=\"btn btn-primary btn-block float-right\">Gallery</a>\n          </div>\n          <div class=\"form-group col-md-6\">\n            <button type=\"submit\" class=\"btn btn-success btn-block float-right\">Submit</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -1756,13 +1767,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./customers/create-customer/create-customer.component */ "./src/app/customers/create-customer/create-customer.component.ts");
 /* harmony import */ var _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customers/customers-list/customers-list.component */ "./src/app/customers/customers-list/customers-list.component.ts");
 /* harmony import */ var _media_media_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./media/media.component */ "./src/app/media/media.component.ts");
-/* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
-/* harmony import */ var _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mobile/mobile.component */ "./src/app/mobile/mobile.component.ts");
-/* harmony import */ var _images_image_list_image_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/image-list/image-list.component */ "./src/app/images/image-list/image-list.component.ts");
-/* harmony import */ var _images_image_image_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/image/image.component */ "./src/app/images/image/image.component.ts");
-/* harmony import */ var _images_images_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./images/images.component */ "./src/app/images/images.component.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _mediaupload_mediaupload_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mediaupload/mediaupload.component */ "./src/app/mediaupload/mediaupload.component.ts");
+/* harmony import */ var _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./videochat/videochat.component */ "./src/app/videochat/videochat.component.ts");
+/* harmony import */ var _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mobile/mobile.component */ "./src/app/mobile/mobile.component.ts");
+/* harmony import */ var _images_image_list_image_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/image-list/image-list.component */ "./src/app/images/image-list/image-list.component.ts");
+/* harmony import */ var _images_image_image_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./images/image/image.component */ "./src/app/images/image/image.component.ts");
+/* harmony import */ var _images_images_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./images/images.component */ "./src/app/images/images.component.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
@@ -1778,22 +1791,23 @@ const routes = [
     { path: '', redirectTo: 'chat', pathMatch: 'full' },
     { path: 'chat', component: _customers_customers_list_customers_list_component__WEBPACK_IMPORTED_MODULE_2__["CustomersListComponent"] },
     { path: 'add', component: _customers_create_customer_create_customer_component__WEBPACK_IMPORTED_MODULE_1__["CreateCustomerComponent"] },
+    { path: 'mediaupload', component: _mediaupload_mediaupload_component__WEBPACK_IMPORTED_MODULE_4__["MediauploadComponent"] },
     { path: 'media', component: _media_media_component__WEBPACK_IMPORTED_MODULE_3__["MediaComponent"] },
-    { path: 'video', component: _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_4__["VideochatComponent"] },
-    { path: 'mobile', component: _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_5__["MobileComponent"] },
+    { path: 'video', component: _videochat_videochat_component__WEBPACK_IMPORTED_MODULE_5__["VideochatComponent"] },
+    { path: 'mobile', component: _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_6__["MobileComponent"] },
     {
-        path: 'image', component: _images_images_component__WEBPACK_IMPORTED_MODULE_8__["ImagesComponent"], children: [
-            { path: 'upload', component: _images_image_image_component__WEBPACK_IMPORTED_MODULE_7__["ImageComponent"] },
-            { path: 'list', component: _images_image_list_image_list_component__WEBPACK_IMPORTED_MODULE_6__["ImageListComponent"] }
+        path: 'image', component: _images_images_component__WEBPACK_IMPORTED_MODULE_9__["ImagesComponent"], children: [
+            { path: 'upload', component: _images_image_image_component__WEBPACK_IMPORTED_MODULE_8__["ImageComponent"] },
+            { path: 'list', component: _images_image_list_image_list_component__WEBPACK_IMPORTED_MODULE_7__["ImageListComponent"] }
         ]
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_9__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_10__["RouterModule"].forRoot(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_10__["RouterModule"]]
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_10__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_11__["RouterModule"].forRoot(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_11__["RouterModule"]]
     })
 ], AppRoutingModule);
 
@@ -1879,6 +1893,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./mobile/mobile.component */ "./src/app/mobile/mobile.component.ts");
 /* harmony import */ var _images_images_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./images/images.component */ "./src/app/images/images.component.ts");
 /* harmony import */ var _images_image_list_image_list_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./images/image-list/image-list.component */ "./src/app/images/image-list/image-list.component.ts");
+/* harmony import */ var mat_video__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! mat-video */ "./node_modules/mat-video/fesm2015/mat-video.js");
+/* harmony import */ var _mediaupload_mediaupload_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./mediaupload/mediaupload.component */ "./src/app/mediaupload/mediaupload.component.ts");
+
+
 
 
 
@@ -1920,7 +1938,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _mobile_mobile_component__WEBPACK_IMPORTED_MODULE_20__["MobileComponent"],
             _images_images_component__WEBPACK_IMPORTED_MODULE_21__["ImagesComponent"],
             _images_image_image_component__WEBPACK_IMPORTED_MODULE_16__["ImageComponent"],
-            _images_image_list_image_list_component__WEBPACK_IMPORTED_MODULE_22__["ImageListComponent"]
+            _images_image_list_image_list_component__WEBPACK_IMPORTED_MODULE_22__["ImageListComponent"],
+            _mediaupload_mediaupload_component__WEBPACK_IMPORTED_MODULE_24__["MediauploadComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -1931,7 +1950,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_fire_storage__WEBPACK_IMPORTED_MODULE_10__["AngularFireStorageModule"],
             videogular2_compiled_core__WEBPACK_IMPORTED_MODULE_5__["VgCoreModule"],
             videogular2_compiled_controls__WEBPACK_IMPORTED_MODULE_6__["VgControlsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+            mat_video__WEBPACK_IMPORTED_MODULE_23__["MatVideoModule"]
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_11__["AppComponent"]]
@@ -2328,6 +2348,7 @@ let ImageComponent = class ImageComponent {
     onSubmit(formValue) {
         this.isSubmitted = true;
         if (this.formTemplate.valid) {
+            //hier
             var filePath = `${formValue.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
             const fileRef = this.storage.ref(filePath);
             this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["finalize"])(() => {
@@ -2425,35 +2446,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediaComponent", function() { return MediaComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/storage/es2015/index.js");
+/* harmony import */ var src_app_shared_media_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/media.service */ "./src/app/shared/media.service.ts");
+
+
 
 
 let MediaComponent = class MediaComponent {
-    constructor() {
-        this.playlist = [
-            {
-                title: '- Pale Blue Dot mp4',
-                src: 'http://static.videogular.com/assets/videos/videogular.mp4',
-                type: 'video/mp4'
-            },
-            {
-                title: '- Big Buck Bunny mp4',
-                src: 'http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov',
-                type: 'video/mp4'
-            },
-            {
-                title: '- Elephants Dream mp4',
-                src: 'http://static.videogular.com/assets/videos/elephants-dream.mp4',
-                type: 'video/mp4'
-            }
-        ];
-        this.currentIndex = 0;
-        this.currentItem = this.playlist[this.currentIndex];
+    constructor(storage, service) {
+        this.storage = storage;
+        this.service = service;
     }
     ngOnInit() {
-    }
-    onClickPlaylistItem(item) {
-        this.currentIndex = 2;
-        this.currentItem = item;
+        this.service.getMediaDetailList();
+        this.service.mediaDetailList.snapshotChanges().subscribe(list => {
+            this.imageList = list.map(item => { return item.payload.val(); });
+            this.rowIndexArray = Array.from(Array(Math.ceil((this.imageList.length + 1) / 3)).keys());
+        });
     }
 };
 MediaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2462,8 +2471,111 @@ MediaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./media.component.html */ "./node_modules/raw-loader/index.js!./src/app/media/media.component.html"),
         styles: [__webpack_require__(/*! ./media.component.css */ "./src/app/media/media.component.css")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_storage__WEBPACK_IMPORTED_MODULE_2__["AngularFireStorage"], src_app_shared_media_service__WEBPACK_IMPORTED_MODULE_3__["MediaService"]])
 ], MediaComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/mediaupload/mediaupload.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/mediaupload/mediaupload.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21lZGlhdXBsb2FkL21lZGlhdXBsb2FkLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/mediaupload/mediaupload.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/mediaupload/mediaupload.component.ts ***!
+  \******************************************************/
+/*! exports provided: MediauploadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediauploadComponent", function() { return MediauploadComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/fire/storage */ "./node_modules/@angular/fire/storage/es2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var src_app_shared_media_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/media.service */ "./src/app/shared/media.service.ts");
+
+
+
+
+
+
+let MediauploadComponent = class MediauploadComponent {
+    constructor(storage, service) {
+        this.storage = storage;
+        this.service = service;
+        this.selectedImage = null;
+        this.formTemplate = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            caption: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required),
+            category: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](''),
+            imageUrl: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required)
+        });
+    }
+    ngOnInit() {
+        this.service.getMediaDetailList();
+        this.resetForm();
+    }
+    showPreview(event) {
+        if (event.target.files && event.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = (e) => this.imgSrc = e.target.result;
+            reader.readAsDataURL(event.target.files[0]);
+            this.selectedImage = event.target.files[0];
+        }
+        else {
+            this.imgSrc = '/assets/img/image_placeholder.jpg';
+            this.selectedImage = null;
+        }
+    }
+    onSubmit(formValue) {
+        this.isSubmitted = true;
+        if (this.formTemplate.valid) {
+            //hier
+            var filePath = `${formValue.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
+            const fileRef = this.storage.ref(filePath);
+            this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["finalize"])(() => {
+                fileRef.getDownloadURL().subscribe((url) => {
+                    formValue['imageUrl'] = url;
+                    this.service.insertMediaDetails(formValue);
+                    this.resetForm();
+                });
+            })).subscribe();
+        }
+    }
+    get formControls() {
+        return this.formTemplate['controls'];
+    }
+    resetForm() {
+        this.formTemplate.reset();
+        this.formTemplate.setValue({
+            caption: '',
+            imageUrl: '',
+            category: 'Animal'
+        });
+        this.imgSrc = '/assets/img/image_placeholder.jpg';
+        this.selectedImage = null;
+        this.isSubmitted = false;
+    }
+};
+MediauploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-mediaupload',
+        template: __webpack_require__(/*! raw-loader!./mediaupload.component.html */ "./node_modules/raw-loader/index.js!./src/app/mediaupload/mediaupload.component.html"),
+        styles: [__webpack_require__(/*! ./mediaupload.component.css */ "./src/app/mediaupload/mediaupload.component.css")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_storage__WEBPACK_IMPORTED_MODULE_3__["AngularFireStorage"], src_app_shared_media_service__WEBPACK_IMPORTED_MODULE_5__["MediaService"]])
+], MediauploadComponent);
 
 
 
@@ -2588,6 +2700,44 @@ ImageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"]])
 ], ImageService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/media.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/shared/media.service.ts ***!
+  \*****************************************/
+/*! exports provided: MediaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediaService", function() { return MediaService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_fire_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/fire/database */ "./node_modules/@angular/fire/database/es2015/index.js");
+
+
+
+let MediaService = class MediaService {
+    constructor(firebase) {
+        this.firebase = firebase;
+    }
+    getMediaDetailList() {
+        this.mediaDetailList = this.firebase.list('mediaDetails');
+    }
+    insertMediaDetails(mediaDetails) {
+        this.mediaDetailList.push(mediaDetails);
+    }
+};
+MediaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"]])
+], MediaService);
 
 
 
@@ -2827,7 +2977,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messenger Image Upload working\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messenger Media Upload\src\main.ts */"./src/main.ts");
 
 
 /***/ })
