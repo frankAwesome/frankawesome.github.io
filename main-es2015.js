@@ -1987,6 +1987,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer */ "./src/app/customers/customer.ts");
 /* harmony import */ var _customer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../customer.service */ "./src/app/customers/customer.service.ts");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! crypto-js */ "./node_modules/crypto-js/index.js");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -2008,6 +2011,8 @@ let CreateCustomerComponent = class CreateCustomerComponent {
         this.customer = new _customer__WEBPACK_IMPORTED_MODULE_2__["Customer"]();
     }
     onSubmit() {
+        this.encPassword = "123";
+        this.customer.age = crypto_js__WEBPACK_IMPORTED_MODULE_4__["AES"].encrypt(this.customer.age, this.encPassword.trim()).toString();
         this.submitted = true;
         this.save();
     }
@@ -2050,6 +2055,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer.service */ "./src/app/customers/customer.service.ts");
 /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../customer */ "./src/app/customers/customer.ts");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! crypto-js */ "./node_modules/crypto-js/index.js");
+/* harmony import */ var crypto_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(crypto_js__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -2059,6 +2067,9 @@ let CustomerDetailsComponent = class CustomerDetailsComponent {
         this.customerService = customerService;
     }
     ngOnInit() {
+        this.decPassword = "123";
+        this.customer.age = crypto_js__WEBPACK_IMPORTED_MODULE_4__["AES"].decrypt(this.customer.age, this.decPassword.trim()).toString(crypto_js__WEBPACK_IMPORTED_MODULE_4__["enc"].Utf8);
+        ;
     }
     updateActive(isActive) {
         this.customerService
@@ -2977,7 +2988,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messenger Media Upload\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Francois\Desktop\NWU\2019\ITRW 322\Project Research\Office Messenger Media Upload - Copy\src\main.ts */"./src/main.ts");
 
 
 /***/ })
