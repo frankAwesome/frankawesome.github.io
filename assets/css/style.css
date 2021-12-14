@@ -143,6 +143,7 @@ h1, h2, h3, h4, h5, h6 {
 */
 .navbar {
   padding: 0;
+  z-index: 1;
 }
 .navbar ul {
   margin: 0;
@@ -338,9 +339,10 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   background: url("../../assets/img/vangaalen/drop.png") top center;
   position: relative;
+  background-attachment: fixed;
 }
 #hero:before {
   content: "";
