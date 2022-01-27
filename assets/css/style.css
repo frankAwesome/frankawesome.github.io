@@ -714,7 +714,7 @@ section {
   bottom: -50px;
   z-index: 3;
   transition: all ease-in-out 0.3s;
-  background: #e97b15;
+  background: #f07e14d2;
   padding: 15px 20px;
 }
 .portfolio .portfolio-item .portfolio-info h4 {
@@ -824,7 +824,7 @@ section {
 .counts .content .count-box i {
   display: block;
   font-size: 36px;
-  color: #e97b15;
+  color: #a37b55;
   float: left;
 }
 .counts .content .count-box span {
