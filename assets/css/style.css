@@ -1,3 +1,41 @@
+.portfolio .portfolio-item .portfolio-info .preview-link, .portfolio .portfolio-item .portfolio-info .details-link {
+  position: absolute;
+  right: 40px;
+  font-size: 24px;
+  top: calc(50% - 18px);
+  color: #fff;
+  transition: 0.3s;
+
+}
+.portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
+  color: #47b2e4;
+}
+
+
+/* a[href]
+{
+    text-decoration: underline;
+    color: white;
+} */
+
+
+/* if desktop */
+.mobile_device_380px {
+  display: none;
+}
+.mobile_device_480px {
+  display: none;
+}
+
+
+/* if mobile device max width 380px */
+@media (max-width: 991px) {
+  .mobile_device_380px{display: block;}       
+  .desktop {display: none;}
+} 
+
+
+
 .swiper-slide {
   text-align: center;
 }
