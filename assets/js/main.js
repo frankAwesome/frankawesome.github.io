@@ -287,4 +287,73 @@
     });
   });
 
+  window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    document.getElementById("guyone").style.opacity = 0;
+  }
+
+  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+    document.getElementById("guyone").style.opacity = 1;
+    document.getElementById("guyone").style.bottom = 0;
+  }
+
+  if (document.body.scrollTop > 1150 || document.documentElement.scrollTop > 1150) {
+    document.getElementById("guyone").style.opacity = 0;
+  }
+
+
+
+
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    document.getElementById("guytwo").style.opacity = 0;
+  }
+
+  if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
+    document.getElementById("guytwo").style.opacity = 1;
+    document.getElementById("guytwo").style.bottom = 0;
+  }
+
+  if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+    document.getElementById("guytwo").style.opacity = 0;
+  }
+
+
+
+
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    document.getElementById("guythree").style.opacity = 0;
+  }
+
+  if (document.body.scrollTop > 1200 || document.documentElement.scrollTop > 1200) {
+    document.getElementById("guythree").style.opacity = 1;
+    document.getElementById("guythree").style.bottom = 0;
+  }
+
+  if (document.body.scrollTop > 1900 || document.documentElement.scrollTop > 1900) {
+    document.getElementById("guythree").style.opacity = 0;
+  }
+
+
+
+
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    document.getElementById("guyfour").style.opacity = 0;
+  }
+
+  if (document.body.scrollTop > 1800 || document.documentElement.scrollTop > 1800) {
+    document.getElementById("guyfour").style.opacity = 1;
+    document.getElementById("guyfour").style.bottom = 0;
+  }
+
+  if (document.body.scrollTop > 2400 || document.documentElement.scrollTop > 2400) {
+    document.getElementById("guyfour").style.opacity = 0;
+  }
+
+
+}
+
 })()
+
+
