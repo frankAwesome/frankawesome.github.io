@@ -715,10 +715,7 @@ section {
   background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") fixed center center;
   background-size: cover;
 }
-.portfoliotwo {
-  background: url("../img/cta-bg.jpg");
-height: 100%;
-}
+
 .portfolio #portfolio-flters {
   padding: 0;
   margin: 0 auto 25px auto;
