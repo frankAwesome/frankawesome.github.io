@@ -342,7 +342,7 @@ function myFunction() {
     document.getElementById("guyfour").style.opacity = 0;
   }
 
-  if (document.body.scrollTop > 1800 || document.documentElement.scrollTop > 1800) {
+  if (document.body.scrollTop > 1600 || document.documentElement.scrollTop > 1600) {
     document.getElementById("guyfour").style.opacity = 1;
     document.getElementById("guyfour").style.bottom = 0;
   }
