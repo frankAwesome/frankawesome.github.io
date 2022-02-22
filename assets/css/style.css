@@ -105,12 +105,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #151515;
   line-height: 0;
 }
-.back-to-top:hover {
+/* .back-to-top:hover {
   background: #151515;
 }
 .back-to-top:hover i {
   color: #e97b15;
-}
+} */
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
