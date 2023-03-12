@@ -1,9 +1,11 @@
 /**
-* Template Name: Gp - v4.7.0
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+* Template Name: eStartup - v4.10.0
+* Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+
 (function() {
   "use strict";
 
@@ -67,13 +69,16 @@
     let header = select('#header')
     let offset = header.offsetHeight
 
+    if (!header.classList.contains('header-scrolled')) {
+      offset -= 16
+    }
+
     let elementPos = select(el).offsetTop
     window.scrollTo({
       top: elementPos - offset,
       behavior: 'smooth'
     })
   }
-  
 
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
@@ -156,112 +161,10 @@
   });
 
   /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
-    });
-  }
-
-  /**
    * Clients Slider
    */
-  new Swiper('.clients-slider', {
+  new Swiper('.screens-slider', {
     speed: 400,
-    loop: true,
-    slidesPerGroup: 1,
-    watchSlidesVisibility: false,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 1,
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 40
-      },
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 60
-      },
-      640: {
-        slidesPerView: 4,
-        spaceBetween: 80
-      },
-      992: {
-        slidesPerView: 6,
-        spaceBetween: 120
-      }
-    }
-  });
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
     loop: true,
     autoplay: {
       delay: 5000,
@@ -272,7 +175,32 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      575: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      }
     }
+  });
+
+  /**
+   * Initiate  glightbox 
+   */
+  const glightbox = GLightbox({
+    selector: '.glightbox'
   });
 
   /**
@@ -281,79 +209,10 @@
   window.addEventListener('load', () => {
     AOS.init({
       duration: 1000,
-      easing: "ease-in-out",
+      easing: 'ease-in-out',
       once: true,
       mirror: false
-    });
+    })
   });
 
-  window.onscroll = function() {myFunction()};
-
-function myFunction() {
-  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    document.getElementById("guyone").style.opacity = 0;
-  }
-
-  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    document.getElementById("guyone").style.opacity = 1;
-    document.getElementById("guyone").style.bottom = 0;
-  }
-
-  if (document.body.scrollTop > 1150 || document.documentElement.scrollTop > 1150) {
-    document.getElementById("guyone").style.opacity = 0;
-  }
-
-
-
-
-  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    document.getElementById("guytwo").style.opacity = 0;
-  }
-
-  if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
-    document.getElementById("guytwo").style.opacity = 1;
-    document.getElementById("guytwo").style.bottom = 0;
-  }
-
-  if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
-    document.getElementById("guytwo").style.opacity = 0;
-  }
-
-
-
-
-  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    document.getElementById("guythree").style.opacity = 0;
-  }
-
-  if (document.body.scrollTop > 1200 || document.documentElement.scrollTop > 1200) {
-    document.getElementById("guythree").style.opacity = 1;
-    document.getElementById("guythree").style.bottom = 0;
-  }
-
-  if (document.body.scrollTop > 1900 || document.documentElement.scrollTop > 1900) {
-    document.getElementById("guythree").style.opacity = 0;
-  }
-
-
-
-
-  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-    document.getElementById("guyfour").style.opacity = 0;
-  }
-
-  if (document.body.scrollTop > 1600 || document.documentElement.scrollTop > 1600) {
-    document.getElementById("guyfour").style.opacity = 1;
-    document.getElementById("guyfour").style.bottom = 0;
-  }
-
-  if (document.body.scrollTop > 2400 || document.documentElement.scrollTop > 2400) {
-    document.getElementById("guyfour").style.opacity = 0;
-  }
-
-
-}
-
 })()
-
-
