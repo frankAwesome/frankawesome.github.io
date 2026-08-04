@@ -6,10 +6,17 @@
 <title>OH SHERBET! — The Relaunch · SKOON.</title>
 <meta name="description" content="OH SHERBET! — a SKOON. private preview.">
 <meta name="robots" content="noindex,nofollow">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
-<meta property="og:title" content="OH SHERBET! — The Relaunch · SKOON.">
-<meta property="og:description" content="Same formula. New experience. The cult clay mask, reborn in water-soluble sachets.">
-<meta property="og:image" content="assets/img/product-box.jpg">
+<meta name="theme-color" content="#f6f2ec">
+<link rel="canonical" href="https://natashaniekerk.site/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="134x134" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://natashaniekerk.site/">
+<meta property="og:title" content="SKOON. — Private preview">
+<meta property="og:description" content="By invitation only.">
+<meta property="og:image" content="https://natashaniekerk.site/assets/img/apple-touch-icon.png">
+<meta name="twitter:card" content="summary">
 <style>
 /* ============ FONTS ============ */
 @font-face{font-family:'Jost';src:url('assets/fonts/jost_n3.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
@@ -166,6 +173,7 @@ a{color:inherit;text-decoration:none}
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   overflow:hidden;padding:110px 20px 160px;
   background:
+    radial-gradient(46% 34% at 50% 66%, rgba(217,185,165,.34) 0%, rgba(217,185,165,0) 70%),
     radial-gradient(120% 90% at 50% 110%, var(--powder) 0%, rgba(236,220,207,0) 60%),
     radial-gradient(80% 60% at 80% 0%, rgba(227,201,184,.5) 0%, rgba(227,201,184,0) 55%),
     var(--bone);
@@ -201,13 +209,6 @@ a{color:inherit;text-decoration:none}
 }
 .scroll-cue .stem{width:1px;height:52px;background:var(--ink);transform-origin:top;animation:cue 2.1s var(--ease) infinite}
 @keyframes cue{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
-.hero-powder-img{
-  position:absolute;bottom:-6vh;left:0;right:0;margin:0 auto;
-  width:min(620px,92vw);opacity:.85;z-index:1;
-  mask-image:radial-gradient(58% 58% at 50% 50%,#000 28%,transparent 66%);
-  -webkit-mask-image:radial-gradient(58% 58% at 50% 50%,#000 28%,transparent 66%);
-  filter:saturate(.92);
-}
 
 /* ============ MARQUEE ============ */
 .marquee{
@@ -655,7 +656,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 <!-- HERO -->
 <header class="hero" id="top">
   <canvas id="powder-canvas" aria-hidden="true"></canvas>
-  <img class="hero-powder-img" src="assets/img/hero-s.jpg" alt="" aria-hidden="true" data-parallax="0.12">
 
   <h1 class="hero-title" id="hero-title" aria-label="Oh Sherbet!">
     <span class="word" data-word="OH"></span>
