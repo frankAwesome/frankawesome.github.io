@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>OH SHERBET! — The Relaunch · SKOON.</title>
-<meta name="description" content="OH SHERBET! 3-in-1 Pore-Refining Exfoliating Mask. Same formula. New experience. A SKOON. relaunch campaign.">
+<meta name="description" content="OH SHERBET! — a SKOON. private preview.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <meta property="og:title" content="OH SHERBET! — The Relaunch · SKOON.">
@@ -130,14 +130,16 @@ a{color:inherit;text-decoration:none}
 /* ============ NAV ============ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  display:flex;align-items:center;justify-content:space-between;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
   padding:20px clamp(20px,4vw,52px);
   transition:background .5s,box-shadow .5s,padding .5s;
 }
 .nav.scrolled{background:rgba(246,242,236,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:13px clamp(20px,4vw,52px);box-shadow:0 1px 0 rgba(17,17,17,.07)}
 .nav .nav-tag{font-family:var(--sans);font-size:11px;letter-spacing:.34em;text-transform:uppercase;font-weight:700}
 .nav .nav-tag em{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:.02em;font-weight:400;font-size:13px}
-.nav .nav-logo img{height:17px;width:auto}
+.nav .nav-tag{grid-column:1;justify-self:start}
+.nav .nav-logo{grid-column:2;justify-self:center}
+.nav .nav-logo img{height:17px;width:auto;display:block}
 .nav .nav-cta{
   font-family:var(--sans);font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;
   border:1px solid var(--ink);padding:10px 18px;border-radius:100px;
@@ -363,7 +365,7 @@ a{color:inherit;text-decoration:none}
 .tap-zone.prev{left:0;width:32%}
 .tap-zone.next{right:0;width:68%}
 .story-hint{
-  position:absolute;z-index:58;bottom:110px;left:50%;transform:translateX(-50%);
+  position:absolute;z-index:58;bottom:74px;left:50%;transform:translateX(-50%);
   color:#fff;font-family:var(--sans);font-size:9px;letter-spacing:.34em;text-transform:uppercase;font-weight:700;
   opacity:0;transition:opacity .5s;text-shadow:0 1px 8px rgba(0,0,0,.4);white-space:nowrap;
   pointer-events:none;
@@ -627,7 +629,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Private preview — access code required">
   <img class="gate-logo" src="assets/img/skoon-logo.png" alt="SKOON.">
   <div class="gate-label">Private preview · Access required</div>
-  <div class="gate-line">Something new is coming. If you know, you know.</div>
   <form class="gate-form" id="gate-form" autocomplete="off">
     <input class="gate-input" id="gate-input" type="text" placeholder="Access code"
            autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Access code">
@@ -649,7 +650,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 <nav class="nav" id="nav">
   <div class="nav-tag">Oh Sherbet! <em>the relaunch</em></div>
   <a class="nav-logo" href="#top" aria-label="SKOON. home"><img src="assets/img/skoon-logo.png" alt="SKOON."></a>
-  <a class="nav-cta" href="https://www.skoonskin.com/products/oh-sherbet-3-in-1-pore-refining-exfoliating-mask" target="_blank" rel="noopener">Shop</a>
 </nav>
 
 <!-- HERO -->
@@ -662,15 +662,9 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
     <span class="word" data-word="SHERBET" data-bang="!"></span>
   </h1>
 
-  <div class="hero-sub">
-    <div class="formula" data-reveal data-delay="500">Azelaic Acid 10% &nbsp;+&nbsp; Prebiotic</div>
-    <div class="line" data-reveal data-delay="650">The cult clay mask, reborn.</div>
-  </div>
-
   <div class="hero-meta">
     <span class="hm-l">Relaunch — 08.2026</span>
     <div class="scroll-cue"><span>Scroll</span><span class="stem"></span></div>
-    <span class="hm-r">3-in-1 Pore-Refining Exfoliating Mask</span>
   </div>
 </header>
 
@@ -680,34 +674,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
     <div class="stories-huge" aria-hidden="true">STORIES</div>
 
     <div class="stories-layout">
-      <!-- left notes -->
-      <div class="story-side left">
-        <div class="story-note" data-note="0">
-          <div class="fnum">№1</div>
-          <h3>The Tease</h3>
-          <p>&ldquo;You know me. You love me.&rdquo; A bottle-shaped void in a bed of powder — the classic, missed before it&rsquo;s revealed.</p>
-          <div class="meta">Story frame · Still · 5&thinsp;s</div>
-        </div>
-        <div class="story-note" data-note="1">
-          <div class="fnum">№2</div>
-          <h3>The Bite</h3>
-          <p>Macro-close on the bitten sachet in a bed of sherbet. One cheeky bite — texture you can almost taste.</p>
-          <div class="meta">Story frame · Film · 4&thinsp;s</div>
-        </div>
-        <div class="story-note" data-note="2">
-          <div class="fnum">№3</div>
-          <h3>The Pour</h3>
-          <p>&ldquo;The science you trust, redesigned to evolve.&rdquo; Sherbet falls; the new box and its bitten sachet stand their ground.</p>
-          <div class="meta">Story frame · Film · 3&thinsp;s</div>
-        </div>
-        <div class="story-note" data-note="3">
-          <div class="fnum">№4</div>
-          <h3>The Signature</h3>
-          <p>&ldquo;Meet OH SHERBET! again.&rdquo; The S. signs off in powder — SKOON. gets the last word, and the last full stop.</p>
-          <div class="meta">Story frame · Film · 3&thinsp;s</div>
-        </div>
-      </div>
-
       <!-- iPhone -->
       <div class="iphone" id="story-phone">
         <span class="sbtn action"></span><span class="sbtn volu"></span><span class="sbtn vold"></span><span class="sbtn power"></span>
@@ -769,35 +735,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
         </div>
       </div>
 
-      <!-- right notes -->
-      <div class="story-side right">
-        <div class="story-note" data-note="0">
-          <h3>Why it works</h3>
-          <p>Negative space is the loudest thing on a feed full of noise. The product isn't shown — it's missed.</p>
-          <div class="meta">01 / 04 — @skoon.skin stories</div>
-        </div>
-        <div class="story-note" data-note="1">
-          <h3>Why it works</h3>
-          <p>Product truth at fingertip distance — no claims, just texture. The bite makes it human.</p>
-          <div class="meta">02 / 04 — @skoon.skin stories</div>
-        </div>
-        <div class="story-note" data-note="2">
-          <h3>Why it works</h3>
-          <p>One line does the repositioning: same science, new body. The pour makes the promise physical.</p>
-          <div class="meta">03 / 04 — @skoon.skin stories</div>
-        </div>
-        <div class="story-note" data-note="3">
-          <h3>Why it works</h3>
-          <p>A reintroduction, not a launch — &ldquo;again&rdquo; is the whole strategy in one word.</p>
-          <div class="meta">04 / 04 — @skoon.skin stories</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- mobile caption -->
-    <div class="stories-mobile-note" id="stories-mobile-note">
-      <div class="fnum">№1</div>
-      <h3>The Tease</h3>
     </div>
 
     <div class="stories-progress-label">
@@ -888,7 +825,7 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
       <div class="label">03 — The Film</div>
       <span>Teaser · 7&thinsp;s · 16:9</span>
     </div>
-    <h2 data-reveal data-delay="120">The <em>teaser</em> — powder is the plot.</h2>
+    <h2 data-reveal data-delay="120">The <em>teaser</em></h2>
     <div class="film-player" data-reveal data-delay="240">
       <video src="assets/video/teaser.mp4" poster="assets/img/teaser-poster.jpg" muted loop playsinline preload="auto" id="film-video"></video>
     </div>
@@ -902,7 +839,7 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 <!-- FILM REEL -->
 <section class="reel">
   <div class="reel-inner">
-    <div class="label" data-reveal>04 — The Campaign Reel</div>
+    <div class="label" data-reveal>Story assets</div>
     <div class="reel-grid">
       <div class="reel-card" role="button" tabindex="0" data-reveal>
         <img src="assets/img/story-1.jpg" alt="Campaign still — powder silhouette">
@@ -980,7 +917,7 @@ window.addEventListener('load',()=>setTimeout(()=>loader.classList.add('done'),6
 setTimeout(()=>loader.classList.add('done'),2600); // failsafe
 
 /* ---------- access gate ---------- */
-const GATE_HASH='77e68eaea977e38506a46775292dd3a5df63b809b6ea8b2849366960c7171996';
+const GATE_HASH='6ccd89cb8904bea83e30cf1264d043212bfba920ba56dc3a6635038d8cc5af02';
 const gate=document.getElementById('gate');
 const gateForm=document.getElementById('gate-form');
 const gateInput=document.getElementById('gate-input');
@@ -1164,8 +1101,10 @@ const frameVideo=i=>frames[i].querySelector('video');
 function applyFrame(){
   frames.forEach((f,k)=>f.classList.toggle('on',k===idx));
   notes.forEach(n=>n.classList.toggle('on',+n.dataset.note===idx));
-  mobileNote.querySelector('.fnum').textContent=mobileTitles[idx][0];
-  mobileNote.querySelector('h3').textContent=mobileTitles[idx][1];
+  if(mobileNote){
+    mobileNote.querySelector('.fnum').textContent=mobileTitles[idx][0];
+    mobileNote.querySelector('h3').textContent=mobileTitles[idx][1];
+  }
   storiesCount.textContent='0'+(idx+1)+' / 0'+NFRAMES;
 }
 function gotoFrame(i){
