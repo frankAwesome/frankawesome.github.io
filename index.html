@@ -172,11 +172,7 @@ a{color:inherit;text-decoration:none}
   position:relative;min-height:100svh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   overflow:hidden;padding:110px 20px 160px;
-  background:
-    radial-gradient(46% 34% at 50% 66%, rgba(217,185,165,.34) 0%, rgba(217,185,165,0) 70%),
-    radial-gradient(120% 90% at 50% 110%, var(--powder) 0%, rgba(236,220,207,0) 60%),
-    radial-gradient(80% 60% at 80% 0%, rgba(227,201,184,.5) 0%, rgba(227,201,184,0) 55%),
-    var(--bone);
+  background:var(--bone);
 }
 #powder-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero-eyebrow{display:flex;align-items:center;gap:18px;margin-bottom:clamp(22px,4vh,44px)}
@@ -664,7 +660,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
   </h1>
 
   <div class="hero-meta">
-    <span class="hm-l">Relaunch — 08.2026</span>
     <div class="scroll-cue"><span>Scroll</span><span class="stem"></span></div>
   </div>
 </header>
@@ -870,9 +865,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
   <div class="lb-stage" id="lb-stage"></div>
 
   <div class="lb-bar">
-    <b id="lb-title">The Tease</b>
-    <span class="dash"></span>
-    <span id="lb-sub">Still</span>
     <span class="num" id="lb-count">01 / 04</span>
   </div>
 
@@ -991,7 +983,6 @@ const gallery=cards.map(c=>{
   };
 });
 const lb=document.getElementById('lb'),lbStage=document.getElementById('lb-stage');
-const lbTitle=document.getElementById('lb-title'),lbSub=document.getElementById('lb-sub');
 const lbCount=document.getElementById('lb-count'),lbThumbs=document.getElementById('lb-thumbs');
 let lbIdx=0,lbOpen=false,scrollLock=0;
 
@@ -1011,8 +1002,6 @@ function showAsset(i){
   lbStage.innerHTML=g.video
     ? `<video src="${g.src}" poster="${g.poster}" muted loop playsinline autoplay></video>`
     : `<img src="${g.src}" alt="${g.title} — campaign asset">`;
-  lbTitle.textContent=g.title;
-  lbSub.textContent=g.sub;
   lbCount.textContent='0'+(lbIdx+1)+' / 0'+gallery.length;
   thumbs.forEach((t,k)=>t.classList.toggle('on',k===lbIdx));
   const v=lbStage.querySelector('video');
