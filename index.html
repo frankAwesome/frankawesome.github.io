@@ -39,7 +39,7 @@
   --body:'Jost','Futura','Helvetica Neue',sans-serif;
   --serif:'Didot','Bodoni 72','Playfair Display',Georgia,serif;
   --ease:cubic-bezier(.22,.9,.24,1);
-  --phone-w:min(348px, 78vw, 39svh);
+  --phone-w:min(348px, 78vw, 36svh);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:auto}
@@ -290,8 +290,8 @@ a{color:inherit;text-decoration:none}
 .stories-wrap{position:relative;background:linear-gradient(180deg,var(--bone) 0%,var(--bone-deep) 45%,var(--powder) 100%)}
 .stories-stage{
   position:relative;min-height:100svh;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  padding:90px 0 80px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:100px 0 70px;
 }
 .stories-layout{
   display:flex;align-items:center;justify-content:center;
@@ -314,6 +314,10 @@ a{color:inherit;text-decoration:none}
 .story-note h3{font-family:var(--sans);text-transform:uppercase;letter-spacing:.26em;font-size:clamp(12px,1.2vw,15px);margin:14px 0 12px}
 .story-note p{font-weight:300;font-size:clamp(13.5px,1.15vw,16px);line-height:1.7;color:var(--ink-soft)}
 .story-note .meta{margin-top:16px;font-family:var(--sans);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);font-weight:700}
+.stories-top{
+  position:relative;z-index:6;justify-content:center;
+  margin-bottom:clamp(26px,4.5vh,46px);
+}
 .stories-progress-label{
   position:absolute;bottom:30px;left:clamp(20px,4vw,56px);z-index:6;
   font-family:var(--sans);font-size:9.5px;letter-spacing:.4em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);
@@ -671,6 +675,7 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 <!-- ================= STORIES ================= -->
 <section class="stories-wrap" id="stories">
   <div class="stories-stage" id="stories-stage">
+    <div class="stories-top label" data-reveal>The stories</div>
     <div class="stories-huge" aria-hidden="true">STORIES</div>
 
     <div class="stories-layout">
@@ -738,7 +743,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
     </div>
 
     <div class="stories-progress-label">
-      <span>The Stories</span>
       <span class="bar"><i id="stories-bar"></i></span>
       <span id="stories-count">01 / 04</span>
     </div>
@@ -749,7 +753,7 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 <section class="feed" id="feed">
   <div class="feed-inner">
     <div class="feed-copy">
-      <div class="label" data-reveal>02 — The Feed</div>
+      <div class="label" data-reveal>The feed</div>
       <h2 data-reveal data-delay="120">As seen <em>in the feed.</em></h2>
     </div>
 
