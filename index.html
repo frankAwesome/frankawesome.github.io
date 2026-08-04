@@ -327,10 +327,6 @@ a{color:inherit;text-decoration:none}
 .feed-copy h2{font-size:clamp(34px,4.6vw,64px);font-weight:300;line-height:1.08;letter-spacing:-.015em;margin:24px 0 0}
 .feed-copy h2 em{font-family:var(--serif);font-style:italic}
 .feed-copy h2 b{font-family:var(--sans);font-weight:700;text-transform:uppercase}
-.feed-float{position:absolute;z-index:1;border-radius:6px;overflow:hidden;box-shadow:0 30px 70px -22px rgba(60,40,25,.35);will-change:transform}
-.feed-float img{width:100%;height:100%;object-fit:cover}
-.ff-1{width:clamp(130px,14vw,220px);aspect-ratio:1;top:12%;right:clamp(10px,4vw,70px);opacity:.9}
-.ff-2{width:clamp(110px,12vw,190px);aspect-ratio:1;bottom:10%;left:clamp(10px,4vw,70px);opacity:.9}
 
 /* feed phone content */
 .feed-phone{position:relative;z-index:4;transform:rotate(2.5deg)}
@@ -546,7 +542,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
   .feed-copy .label{justify-content:center}
   .feed-copy p{margin-left:auto;margin-right:auto}
   .feed-stats{justify-content:center}
-  .feed-float{display:none}
   .reel-grid{grid-template-columns:repeat(2,1fr)}
   .stats-row{grid-template-columns:1fr}
   .product-strip{grid-template-columns:1fr}
@@ -812,9 +807,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
       </div>
     </div>
 
-    <!-- floating parallax product shots -->
-    <div class="feed-float ff-1" data-parallax="0.18"><img src="assets/img/product-sachets.jpg" alt="Oh Sherbet sachets fanned in the box"></div>
-    <div class="feed-float ff-2" data-parallax="-0.12"><img src="assets/img/product-benefits.jpg" alt="Oh Sherbet benefits — deeply purifies pores, smooths and resurfaces"></div>
   </div>
 </section>
 
