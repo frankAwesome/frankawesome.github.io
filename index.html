@@ -433,7 +433,7 @@ a{color:inherit;text-decoration:none}
 .film{background:var(--ink);padding:clamp(90px,14vh,170px) clamp(22px,5vw,70px) 0;position:relative}
 /* capped so the 1260×720 master is never upscaled into softness */
 .film-inner{max-width:900px;margin:0 auto}
-.film-head{display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--bone)}
+.film-head{display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--bone);margin-bottom:clamp(30px,5vh,50px)}
 .film-head .label{color:var(--bone)}
 .film-head .label::before{background:var(--bone)}
 .film-head span{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:rgba(246,242,236,.5)}
@@ -822,11 +822,9 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 <section class="film" id="film">
   <div class="film-inner">
     <div class="film-head" data-reveal>
-      <div class="label">03 — The Film</div>
-      <span>Teaser · 7&thinsp;s · 16:9</span>
+      <div class="label">The teaser</div>
     </div>
-    <h2 data-reveal data-delay="120">The <em>teaser</em></h2>
-    <div class="film-player" data-reveal data-delay="240">
+    <div class="film-player" data-reveal data-delay="140">
       <video src="assets/video/teaser.mp4" poster="assets/img/teaser-poster.jpg" muted loop playsinline preload="auto" id="film-video"></video>
     </div>
   </div>
