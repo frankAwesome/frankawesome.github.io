@@ -1057,12 +1057,10 @@ const stage=document.getElementById('stories-stage');
 const segs=[...document.querySelectorAll('#progress-row .seg i')];
 const frames=[...document.querySelectorAll('#sframes .sframe')];
 const notes=[...document.querySelectorAll('.story-note')];
-const mobileNote=document.getElementById('stories-mobile-note');
 const storiesBar=document.getElementById('stories-bar');
 const storiesCount=document.getElementById('stories-count');
 const storyPhone=document.getElementById('story-phone');
 const storyHint=document.getElementById('story-hint');
-const mobileTitles=[['№1','The Tease'],['№2','The Bite'],['№3','The Pour'],['№4','The Signature']];
 const NFRAMES=frames.length, IMG_DUR=5000;
 let idx=0, imgElapsed=0, storyLastT=null, storyLive=false, interacted=false;
 if(!reduceMotion)storyPhone.classList.add('floaty');
@@ -1071,10 +1069,6 @@ const frameVideo=i=>frames[i].querySelector('video');
 function applyFrame(){
   frames.forEach((f,k)=>f.classList.toggle('on',k===idx));
   notes.forEach(n=>n.classList.toggle('on',+n.dataset.note===idx));
-  if(mobileNote){
-    mobileNote.querySelector('.fnum').textContent=mobileTitles[idx][0];
-    mobileNote.querySelector('h3').textContent=mobileTitles[idx][1];
-  }
   storiesCount.textContent='0'+(idx+1)+' / 0'+NFRAMES;
 }
 function gotoFrame(i){
