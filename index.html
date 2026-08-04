@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>OH SHERBET! — The Relaunch · SKOON.</title>
 <meta name="description" content="OH SHERBET! 3-in-1 Pore-Refining Exfoliating Mask. Same formula. New experience. A SKOON. relaunch campaign.">
+<meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <meta property="og:title" content="OH SHERBET! — The Relaunch · SKOON.">
 <meta property="og:description" content="Same formula. New experience. The cult clay mask, reborn in water-soluble sachets.">
@@ -58,6 +59,61 @@ a{color:inherit;text-decoration:none}
   0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-8%)}20%{transform:translate(-13%,3%)}
   30%{transform:translate(6%,-11%)}40%{transform:translate(-3%,9%)}50%{transform:translate(-11%,-4%)}
   60%{transform:translate(9%,2%)}70%{transform:translate(-4%,7%)}80%{transform:translate(4%,-6%)}90%{transform:translate(-8%,4%)}
+}
+
+/* ============ ACCESS GATE ============ */
+.gate{
+  position:fixed;inset:0;z-index:5000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+  padding:30px;text-align:center;
+  background:
+    radial-gradient(120% 90% at 50% 110%, var(--powder) 0%, rgba(236,220,207,0) 60%),
+    radial-gradient(80% 60% at 80% 0%, rgba(227,201,184,.5) 0%, rgba(227,201,184,0) 55%),
+    var(--bone);
+  transition:opacity .9s var(--ease),visibility .9s;
+}
+.gate.hidden{opacity:0;visibility:hidden}
+.gate-logo{width:min(180px,44vw);opacity:0;animation:loaderIn 1s var(--ease) .15s forwards}
+.gate-label{
+  margin-top:26px;font-family:var(--sans);font-size:10px;letter-spacing:.44em;text-transform:uppercase;font-weight:700;color:var(--ink-soft);
+  opacity:0;animation:loaderIn 1s var(--ease) .35s forwards;
+}
+.gate-line{
+  margin-top:14px;font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.4vw,22px);color:var(--ink-soft);
+  opacity:0;animation:loaderIn 1s var(--ease) .5s forwards;
+}
+.gate-form{
+  margin-top:clamp(34px,6vh,52px);display:flex;align-items:center;gap:14px;
+  opacity:0;animation:loaderIn 1s var(--ease) .65s forwards;
+}
+.gate-input{
+  background:transparent;border:0;border-bottom:1px solid var(--ink);border-radius:0;
+  font-family:var(--sans);font-size:15px;letter-spacing:.5em;text-transform:uppercase;font-weight:700;color:var(--ink);
+  padding:12px 4px 12px 8px;width:min(240px,58vw);text-align:center;outline:none;
+  transition:border-color .3s;
+}
+.gate-input::placeholder{color:var(--grey);font-weight:700;letter-spacing:.4em;font-size:10.5px}
+.gate-input:focus{border-color:var(--blush-deep)}
+.gate-go{
+  width:48px;height:48px;border-radius:50%;border:1px solid var(--ink);background:transparent;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  transition:background .35s,color .35s,transform .35s var(--ease);
+}
+.gate-go:hover{background:var(--ink);color:var(--bone);transform:translateX(2px)}
+.gate-err{
+  margin-top:20px;height:16px;font-family:var(--sans);font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;font-weight:700;
+  color:var(--blush-deep);opacity:0;transition:opacity .3s;
+}
+.gate.wrong .gate-err{opacity:1}
+.gate.wrong .gate-form{animation:gateShake .5s var(--ease)}
+@keyframes gateShake{
+  0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(8px)}
+  60%{transform:translateX(-5px)}80%{transform:translateX(3px)}
+}
+.gate-foot{
+  position:absolute;bottom:30px;left:0;right:0;
+  font-family:var(--sans);font-size:9px;letter-spacing:.34em;text-transform:uppercase;font-weight:700;color:var(--grey);
+  opacity:0;animation:loaderIn 1s var(--ease) .85s forwards;
 }
 
 /* ============ LOADER ============ */
@@ -568,6 +624,22 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 
 <div class="grain" aria-hidden="true"></div>
 
+<!-- ACCESS GATE -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Private preview — access code required">
+  <img class="gate-logo" src="assets/img/skoon-logo.png" alt="SKOON.">
+  <div class="gate-label">Private preview · Access required</div>
+  <div class="gate-line">Something new is coming. If you know, you know.</div>
+  <form class="gate-form" id="gate-form" autocomplete="off">
+    <input class="gate-input" id="gate-input" type="text" placeholder="Access code"
+           autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Access code">
+    <button class="gate-go" type="submit" aria-label="Enter">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+    </button>
+  </form>
+  <div class="gate-err" id="gate-err">Not quite — try again</div>
+  <div class="gate-foot">SKOON. — By invitation only</div>
+</div>
+
 <!-- LOADER -->
 <div class="loader" id="loader" aria-hidden="true">
   <img src="assets/img/skoon-logo.png" alt="SKOON.">
@@ -907,6 +979,52 @@ if(dbg!==null){addEventListener('load',()=>setTimeout(()=>scrollTo(0,parseFloat(
 const loader=document.getElementById('loader');
 window.addEventListener('load',()=>setTimeout(()=>loader.classList.add('done'),650));
 setTimeout(()=>loader.classList.add('done'),2600); // failsafe
+
+/* ---------- access gate ---------- */
+const GATE_HASH='77e68eaea977e38506a46775292dd3a5df63b809b6ea8b2849366960c7171996';
+const gate=document.getElementById('gate');
+const gateForm=document.getElementById('gate-form');
+const gateInput=document.getElementById('gate-input');
+async function sha256(s){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function replayLanding(){
+  scrollTo(0,0);
+  const hero=document.querySelector('.hero');
+  hero.classList.remove('armed');
+  loader.classList.remove('done');
+  loader.querySelectorAll('img,.tag').forEach(el=>{
+    el.style.animation='none';void el.offsetWidth;el.style.animation='';
+  });
+  setTimeout(()=>{
+    loader.classList.add('done');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>hero.classList.add('armed')));
+  },1600);
+}
+function unlockGate(){
+  sessionStorage.setItem('ohsherbet-access','1');
+  gate.classList.add('hidden');
+  document.body.style.overflow='';
+  replayLanding();
+  setTimeout(()=>gate.remove(),1000);
+}
+if(sessionStorage.getItem('ohsherbet-access')==='1'){
+  gate.remove();
+}else{
+  document.body.style.overflow='hidden';
+  setTimeout(()=>gateInput.focus({preventScroll:true}),700);
+  gateForm.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const hex=await sha256(gateInput.value.trim().toLowerCase());
+    if(hex===GATE_HASH){unlockGate();}
+    else{
+      gate.classList.remove('wrong');void gate.offsetWidth;gate.classList.add('wrong');
+      gateInput.value='';gateInput.focus({preventScroll:true});
+      setTimeout(()=>gate.classList.remove('wrong'),2200);
+    }
+  });
+}
 
 /* ---------- hero title split ---------- */
 const heroTitle=document.getElementById('hero-title');
