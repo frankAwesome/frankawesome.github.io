@@ -412,7 +412,7 @@ a{color:inherit;text-decoration:none}
   background:rgba(0,0,0,.6);color:#fff;border-radius:100px;padding:4px 10px;
   font-family:-apple-system,'SF Pro Text','Jost',sans-serif;font-size:11.5px;font-weight:500;
 }
-.post-dots{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:5px}
+.post-dots{display:flex;gap:5px;justify-self:center}
 .post-dots i{width:6px;height:6px;border-radius:50%;background:#54555c;transition:background .3s,transform .3s}
 .post-dots i.on{background:#3897f0;transform:scale(1.15)}
 .big-heart{
@@ -421,9 +421,13 @@ a{color:inherit;text-decoration:none}
 }
 .big-heart.pop{animation:heartpop .9s var(--ease)}
 @keyframes heartpop{0%{transform:translate(-50%,-50%) scale(0)}18%{transform:translate(-50%,-50%) scale(1.12)}30%{transform:translate(-50%,-50%) scale(.98)}70%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
-.post-actions{display:flex;align-items:center;gap:17px;padding:9px 14px 4px;position:relative}
-.post-actions .spacer{flex:1}
-.post-actions svg{cursor:pointer;width:27px;height:27px}
+.post-actions{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  gap:8px;padding:9px 14px 4px;
+}
+.pa-left{display:flex;align-items:center;gap:13px}
+.pa-right{display:flex;justify-content:flex-end}
+.post-actions svg{cursor:pointer;width:22px;height:22px}
 .post-actions svg *{stroke-width:2.1}
 .likes{padding:0 12px;font-size:13px;font-weight:600}
 .caption{padding:4px 12px 2px;font-size:13px;line-height:1.45;font-weight:400}
@@ -612,7 +616,6 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 @media(max-width:640px){
   .foot-row .fmeta{text-align:left}
   .ig-topbar{padding-top:32px}
-  .post-actions svg{width:24px;height:24px}
 }
 
 /* reduced motion */
@@ -788,12 +791,15 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
                 <svg class="big-heart" id="big-heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35C6.4 17 2.5 13.3 2.5 9.4 2.5 6.4 4.9 4 7.9 4c1.9 0 3.4 1 4.1 2.4C12.7 5 14.2 4 16.1 4c3 0 5.4 2.4 5.4 5.4 0 3.9-3.9 7.6-9.5 11.95z"/></svg>
               </div>
               <div class="post-actions">
-                <svg id="like-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M12 20.5C7 16.6 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 7-8.5 10.9z"/></svg>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L4 20l1.2-4.4A8.5 8.5 0 1 1 21 11.5z"/></svg>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><path d="M21 3L3 10.5l6.7 2.8L12.5 20 21 3z"/><path d="M9.7 13.3L21 3"/></svg>
+                <div class="pa-left">
+                  <svg id="like-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M12 20.5C7 16.6 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 7-8.5 10.9z"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L4 20l1.2-4.4A8.5 8.5 0 1 1 21 11.5z"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><path d="M21 3L3 10.5l6.7 2.8L12.5 20 21 3z"/><path d="M9.7 13.3L21 3"/></svg>
+                </div>
                 <div class="post-dots" id="post-dots"><i class="on"></i><i></i><i></i><i></i></div>
-                <span class="spacer"></span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><path d="M6 3h12v18l-6-4.5L6 21V3z"/></svg>
+                <div class="pa-right">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><path d="M6 3h12v18l-6-4.5L6 21V3z"/></svg>
+                </div>
               </div>
               <div class="likes" id="likes-line">2,847 likes</div>
               <div class="caption">
