@@ -388,34 +388,43 @@ a{color:inherit;text-decoration:none}
 .feed-copy .label{justify-content:center}
 
 /* feed phone content */
-.feed-phone{position:relative;z-index:4;transform:rotate(2.5deg)}
+.feed-phone{position:relative;z-index:4;transform:rotate(2.5deg);--phone-w:min(364px,80vw,42svh)}
 .feed-screen{background:#000;color:#fff;display:flex;flex-direction:column;font-family:-apple-system,'SF Pro Text','Jost',sans-serif}
 .ig-topbar{
   display:flex;align-items:center;justify-content:space-between;
-  padding:46px 16px 8px;
+  padding:38px 16px 6px;
 }
-.ig-wordmark{font-family:'Snell Roundhand','Brush Script MT',cursive;font-size:26px;font-weight:700;letter-spacing:.01em}
+.ig-wordmark{font-family:'Snell Roundhand','Brush Script MT',cursive;font-size:24px;font-weight:700;letter-spacing:.01em}
 .ig-topbar .ticons{display:flex;gap:20px;align-items:center}
 .post{flex:1;display:flex;flex-direction:column;min-height:0}
-.post-head{display:flex;align-items:center;gap:10px;padding:8px 12px}
+.post-head{display:flex;align-items:center;gap:10px;padding:6px 12px}
 .post-avatar{width:32px;height:32px;border-radius:50%;padding:1.5px;background:linear-gradient(45deg,#f9ce34,#ee2a7b 55%,#6228d7)}
 .post-avatar .av-in{width:100%;height:100%;border-radius:50%;background:#fff;border:1.5px solid #000;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .post-avatar img{width:64%}
 .post-head .who{font-size:13px;font-weight:600;display:flex;align-items:center;gap:5px}
 .post-head .sub{font-size:11px;opacity:.7;font-weight:400}
 .post-head .spacer{flex:1}
-.post-media{position:relative;aspect-ratio:4/5;background:#111;overflow:hidden;flex-shrink:0}
-.post-media video{width:100%;height:100%;object-fit:cover}
-.post-media .mute-dot{position:absolute;right:10px;bottom:10px;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center}
+.post-media{position:relative;aspect-ratio:3/4;background:#111;overflow:hidden;flex-shrink:0;cursor:pointer}
+.post-track{display:flex;height:100%;transition:transform .55s var(--ease)}
+.post-track img{width:100%;height:100%;object-fit:cover;flex-shrink:0;display:block}
+.slide-count{
+  position:absolute;top:12px;right:12px;z-index:3;
+  background:rgba(0,0,0,.6);color:#fff;border-radius:100px;padding:4px 10px;
+  font-family:-apple-system,'SF Pro Text','Jost',sans-serif;font-size:11.5px;font-weight:500;
+}
+.post-dots{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:5px}
+.post-dots i{width:6px;height:6px;border-radius:50%;background:#54555c;transition:background .3s,transform .3s}
+.post-dots i.on{background:#3897f0;transform:scale(1.15)}
 .big-heart{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);
   width:96px;height:96px;color:#fff;filter:drop-shadow(0 4px 18px rgba(0,0,0,.35));pointer-events:none;
 }
 .big-heart.pop{animation:heartpop .9s var(--ease)}
 @keyframes heartpop{0%{transform:translate(-50%,-50%) scale(0)}18%{transform:translate(-50%,-50%) scale(1.12)}30%{transform:translate(-50%,-50%) scale(.98)}70%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:0}}
-.post-actions{display:flex;align-items:center;gap:16px;padding:11px 12px 6px}
+.post-actions{display:flex;align-items:center;gap:17px;padding:9px 14px 4px;position:relative}
 .post-actions .spacer{flex:1}
-.post-actions svg{cursor:pointer}
+.post-actions svg{cursor:pointer;width:27px;height:27px}
+.post-actions svg *{stroke-width:2.1}
 .likes{padding:0 12px;font-size:13px;font-weight:600}
 .caption{padding:4px 12px 2px;font-size:13px;line-height:1.45;font-weight:400}
 .caption b{font-weight:600}
@@ -602,6 +611,8 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
 .stories-mobile-note{display:none}
 @media(max-width:640px){
   .foot-row .fmeta{text-align:left}
+  .ig-topbar{padding-top:32px}
+  .post-actions svg{width:24px;height:24px}
 }
 
 /* reduced motion */
@@ -767,16 +778,20 @@ footer{background:var(--powder);padding:clamp(80px,12vh,140px) clamp(22px,5vw,80
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>
               </div>
               <div class="post-media" id="post-media">
-                <video src="assets/video/ig-post.mp4" poster="assets/img/ig-post-poster.jpg" muted loop playsinline preload="auto" id="feed-video"></video>
-                <span class="mute-dot">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M3 9v6h4l6 5V4L7 9H3z"/><path d="M17 8l5 8M22 8l-5 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-                </span>
+                <div class="post-track" id="post-track">
+                  <img src="assets/img/post-1.jpg" alt="Look again — Oh Sherbet sachet in powder, NEW stamp">
+                  <img src="assets/img/post-2.jpg" alt="Look closer — the new Oh Sherbet box">
+                  <img src="assets/img/post-3.jpg" alt="Same formulation, more for your skin, less for the planet — sachet dissolving in water">
+                  <img src="assets/img/post-4.jpg" alt="Here today, gone tomorrow, except on your skin — powder S.">
+                </div>
+                <span class="slide-count" id="slide-count">1/4</span>
                 <svg class="big-heart" id="big-heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35C6.4 17 2.5 13.3 2.5 9.4 2.5 6.4 4.9 4 7.9 4c1.9 0 3.4 1 4.1 2.4C12.7 5 14.2 4 16.1 4c3 0 5.4 2.4 5.4 5.4 0 3.9-3.9 7.6-9.5 11.95z"/></svg>
               </div>
               <div class="post-actions">
                 <svg id="like-btn" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M12 20.5C7 16.6 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.9 4 2.3C12.9 5.9 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 7-8.5 10.9z"/></svg>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L4 20l1.2-4.4A8.5 8.5 0 1 1 21 11.5z"/></svg>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><path d="M21 3L3 10.5l6.7 2.8L12.5 20 21 3z"/><path d="M9.7 13.3L21 3"/></svg>
+                <div class="post-dots" id="post-dots"><i class="on"></i><i></i><i></i><i></i></div>
                 <span class="spacer"></span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linejoin="round"><path d="M6 3h12v18l-6-4.5L6 21V3z"/></svg>
               </div>
@@ -1034,12 +1049,31 @@ const vio=new IntersectionObserver(es=>{
     else v.pause();
   });
 },{threshold:.35});
-document.querySelectorAll('.reel-card video, #feed-video, #film-video').forEach(v=>vio.observe(v));
+document.querySelectorAll('.reel-card video, #film-video').forEach(v=>vio.observe(v));
 
-/* ---------- feed double-tap heart ---------- */
+/* ---------- feed carousel + like ---------- */
 const media=document.getElementById('post-media'),bigHeart=document.getElementById('big-heart');
 const likeBtn=document.getElementById('like-btn'),likesLine=document.getElementById('likes-line');
+const postTrack=document.getElementById('post-track');
+const postDots=[...document.querySelectorAll('#post-dots i')];
+const slideCountEl=document.getElementById('slide-count');
+const SLIDES=postTrack.children.length;
+let slide=0,slideTimer=null,clickTimer=null;
 let liked=false,likes=2847;
+
+function goSlide(i){
+  slide=((i%SLIDES)+SLIDES)%SLIDES;
+  postTrack.style.transform=`translateX(-${slide*100}%)`;
+  postDots.forEach((d,k)=>d.classList.toggle('on',k===slide));
+  slideCountEl.textContent=(slide+1)+'/'+SLIDES;
+}
+function startSlides(){stopSlides();slideTimer=setInterval(()=>goSlide(slide+1),3500);}
+function stopSlides(){if(slideTimer){clearInterval(slideTimer);slideTimer=null;}}
+const feedIO=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting)startSlides();else stopSlides();});
+},{threshold:.3});
+feedIO.observe(media);
+
 function doLike(force){
   if(force||!liked){liked=true;}else{liked=false;}
   likeBtn.setAttribute('fill',liked?'#ff3040':'none');
@@ -1047,6 +1081,11 @@ function doLike(force){
   likesLine.textContent=fmt(likes+(liked?1:0))+' likes';
 }
 media.addEventListener('click',()=>{
+  if(clickTimer)return;
+  clickTimer=setTimeout(()=>{clickTimer=null;goSlide(slide+1);startSlides();},280);
+});
+media.addEventListener('dblclick',()=>{
+  if(clickTimer){clearTimeout(clickTimer);clickTimer=null;}
   bigHeart.classList.remove('pop');void bigHeart.offsetWidth;bigHeart.classList.add('pop');
   doLike(true);
 });
